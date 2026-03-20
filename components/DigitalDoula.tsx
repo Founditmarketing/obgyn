@@ -7,6 +7,68 @@ import { ClipboardList, Map, Stethoscope, ArrowRight, X } from 'lucide-react';
 
 type ToolType = 'birthplan' | 'map' | 'symptoms' | null;
 
+function SymptomAnalyzer() {
+  const [symptoms, setSymptoms] = useState('');
+  const [result, setResult] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const analyze = async () => {
+    if(!symptoms.trim()) return;
+    setLoading(true);
+    try {
+      const res = await fetch("/api/doula", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: "Patient symptoms to triage: " + symptoms, context: "Symptom Checker Tool - Please be highly clinical and advise if it requires a clinic visit." })
+      });
+      const data = await res.json();
+      setResult(data.text);
+    } catch(err) {
+      setResult("An error occurred connecting to the clinical AI.");
+    }
+    setLoading(false);
+  }
+
+  return (
+    <div className="space-y-6">
+      <h3 className="font-serif text-3xl text-[#1A1F1B]">Symptom Checker</h3>
+      <p className="text-[#1A1F1B]/70 font-light">Describe what you&apos;re feeling, and we&apos;ll guide you to the right care.</p>
+      
+      {!result ? (
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} className="pt-2">
+          <textarea 
+            value={symptoms}
+            onChange={e => setSymptoms(e.target.value)}
+            className="w-full p-6 border border-[#1A1F1B]/10 rounded-2xl focus:ring-1 focus:ring-[#4A5D4E] focus:border-transparent outline-none resize-none h-40 bg-white/60 backdrop-blur-md text-[#1A1F1B] font-light shadow-inner transition-all duration-300"
+            placeholder="E.g., I'm 28 weeks pregnant and experiencing mild cramping..."
+            autoFocus
+          ></textarea>
+          <button 
+            onClick={analyze}
+            disabled={loading}
+            className="block text-center w-full bg-[#1A1F1B] text-[#F4F2EC] py-5 rounded-full font-medium hover:bg-[#B89C86] transition-all duration-500 mt-4 shadow-lg disabled:opacity-50 text-xs tracking-[0.2em] uppercase hover:-translate-y-1 transform disabled:transform-none disabled:hover:bg-[#1A1F1B]"
+          >
+            {loading ? "Analyzing..." : "Analyze Symptoms"}
+          </button>
+        </motion.div>
+      ) : (
+        <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} className="p-8 bg-white/80 backdrop-blur-md rounded-3xl border border-[#4A5D4E]/10 text-[#1A1F1B] shadow-xl shadow-[#1A1F1B]/5">
+           <div className="prose prose-sm prose-stone max-w-none text-[15px] leading-relaxed font-light">
+             {result.split('\n').filter(Boolean).map((p, i) => <p key={i} className="mb-4 last:mb-0">{p.replace(/\*\*/g, '')}</p>)}
+           </div>
+           <button onClick={() => {setResult(''); setSymptoms('');}} className="mt-8 text-[11px] tracking-[0.1em] font-medium text-[#4A5D4E] uppercase border-b border-[#4A5D4E] hover:text-[#1A1F1B] hover:border-[#1A1F1B] transition-colors pb-1">
+             Ask Another Question
+           </button>
+        </motion.div>
+      )}
+      
+      <p className="text-[10px] text-center text-[#1A1F1B]/50 mt-4 uppercase tracking-[0.1em]">
+        Experiencing a medical emergency? Call 911 immediately.
+      </p>
+    </div>
+  );
+}
+
 export function DigitalDoula() {
   const [activeTool, setActiveTool] = useState<ToolType>(null);
 
@@ -74,25 +136,7 @@ export function DigitalDoula() {
       description: 'AI-powered guidance to help you decide if you need a visit or the ER.',
       icon: <Stethoscope className="h-6 w-6 text-[#1A1F1B]" />,
       color: 'bg-[#D9D2C5]/40',
-      content: (
-        <div className="space-y-6">
-          <h3 className="font-serif text-3xl text-[#1A1F1B]">Symptom Checker</h3>
-          <p className="text-[#1A1F1B]/70 font-light">Describe what you&apos;re feeling, and we&apos;ll guide you to the right care.</p>
-          <div className="pt-4">
-            <textarea 
-              className="w-full p-6 border border-[#1A1F1B]/10 rounded-2xl focus:ring-2 focus:ring-[#4A5D4E] focus:border-transparent outline-none resize-none h-40 bg-white/60 backdrop-blur-md text-[#1A1F1B] font-light shadow-inner"
-              placeholder="E.g., I'm 28 weeks pregnant and experiencing mild cramping..."
-              autoFocus
-            ></textarea>
-          </div>
-            <Link href="/portal" prefetch={true} className="block text-center w-full bg-[#1A1F1B] text-[#F4F2EC] py-5 rounded-full font-medium hover:bg-[#B89C86] transition-all duration-500 mt-2 shadow-lg shadow-[#1A1F1B]/10 text-xs tracking-[0.2em] uppercase hover:-translate-y-1 transform">
-              Analyze Symptoms
-            </Link>
-          <p className="text-[10px] text-center text-[#1A1F1B]/50 mt-4 uppercase tracking-[0.1em]">
-            Experiencing a medical emergency? Call 911 immediately.
-          </p>
-        </div>
-      )
+      content: <SymptomAnalyzer />
     }
   ];
 

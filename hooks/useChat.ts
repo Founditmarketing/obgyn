@@ -57,14 +57,36 @@ export function useChat() {
 
     const chatRoomId = `chat_${user.uid}`;
     
-    // Optimistic UI update could be handled in local state, 
-    // but Firestore's onSnapshot listener runs immediately for local writes!
+    // 1. Save Patient's Message to Firestore
     await addDoc(collection(db, "chats", chatRoomId, "messages"), {
       text,
       senderId: user.uid,
       senderName: user.displayName || "Patient",
       createdAt: serverTimestamp(),
     });
+
+    // 2. Securely Ping the AI Backend Route
+    try {
+      const resp = await fetch("/api/doula", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text })
+      });
+      
+      const data = await resp.json();
+      
+      if (data.text) {
+        // 3. Save AI's Response to Firestore
+        await addDoc(collection(db, "chats", chatRoomId, "messages"), {
+          text: data.text,
+          senderId: "ai_nurse",
+          senderName: "Clinic Concierge (AI)",
+          createdAt: serverTimestamp(),
+        });
+      }
+    } catch (err) {
+      console.error("AI Generation failed:", err);
+    }
   };
 
   return { messages, sendMessage, loading };
