@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { useTheme } from './ThemeProvider';
 import { HeartPulse, Menu, X, Phone, MapPin } from 'lucide-react';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';import Image from 'next/image';
+import { motion, AnimatePresence } from 'motion/react';
+import Image from 'next/image';
+import { LoginButton } from './auth/LoginButton';
 
 export function Navbar() {
   const { isNervousMode, toggleNervousMode } = useTheme();
@@ -29,8 +31,8 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full glass-panel border-b-0 shadow-sm border-white/40">
       <div className="container mx-auto px-6 lg:px-12 h-24 md:h-28 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 md:gap-4 group">
-          <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden shadow-sm border border-[#E3E1DB] flex items-center justify-center bg-white group-hover:shadow-md transition-all duration-500">
-            <Image src="/images/clinic_logo_joseph.png" alt="Dr. Alex Joseph Logo" fill className="object-contain p-1.5 transition-transform duration-700 group-hover:scale-105" />
+          <div className="w-10 h-10 flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:scale-105">
+            <Image src="/images/clinic_logo_joseph.png" alt="Clinic Logo" width={40} height={40} className="object-contain" />
           </div>
           <div className="flex flex-col">
             <span className="font-serif text-xl md:text-2xl font-medium tracking-tight text-foreground transition-colors duration-500 group-hover:text-primary">Dr. Alex Joseph</span>
@@ -56,6 +58,7 @@ export function Navbar() {
             >
               {isNervousMode ? 'Calm Mode Active' : 'Nervous?'}
             </button>
+            <LoginButton />
             <Link 
               href="#book" 
               className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors shadow-sm"
@@ -114,6 +117,10 @@ export function Navbar() {
               >
                 Book Your Visit
               </Link>
+              
+              <div className="mt-4 flex justify-center w-full">
+                <LoginButton />
+              </div>
             </div>
           </motion.div>
         )}
@@ -126,7 +133,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="bg-accent text-accent-foreground py-2 px-4 flex justify-center items-center gap-6 text-sm font-medium"
+            className="absolute top-full left-0 w-full bg-accent text-accent-foreground py-3 sm:py-2 px-4 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6 text-xs sm:text-sm font-medium shadow-md border-t border-accent-foreground/10"
           >
             <a href="tel:911" className="flex items-center gap-2 hover:underline">
               <Phone className="h-4 w-4" /> Call a Nurse Now
