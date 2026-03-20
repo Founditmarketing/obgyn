@@ -31,7 +31,7 @@ export function AlexandriaConcierge() {
   ];
 
   return (
-    <section id="concierge" className="py-16 md:py-48 bg-[#1A1F1B] text-[#F4F2EC] relative z-0">
+    <section id="concierge" className="py-16 md:py-32 bg-[#1A1F1B] text-[#F4F2EC] relative z-0">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-12 xl:gap-32 max-w-[90rem] mx-auto items-center">
           

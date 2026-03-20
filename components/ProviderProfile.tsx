@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export function ProviderProfile() {
   return (
-    <section id="expertise" className="py-32 md:py-48 bg-[#1A1F1B] text-[#F4F2EC] overflow-hidden relative rounded-t-[3rem] mt-[-3rem] z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+    <section id="expertise" className="py-16 md:py-32 bg-[#1A1F1B] text-[#F4F2EC] overflow-hidden relative rounded-t-[3rem] mt-[-3rem] z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
       
       {/* Absolute massive background typography */}
       <div className="absolute top-10 left-0 w-full overflow-hidden flex justify-center opacity-[0.03] pointer-events-none select-none">
@@ -29,11 +29,11 @@ export function ProviderProfile() {
             >
                <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] border border-[#F4F2EC]/10 group">
                  <Image 
-                   src="https://picsum.photos/seed/doctorport/1000/1200"
-                   alt="Dr. Alex Joseph"
+                   src="/images/provider_thumbnail_lux.png"
+                   alt="Dr. Alex Joseph in her clinic"
                    fill
                    className="object-cover transition-transform duration-[2s] group-hover:scale-105"
-                   referrerPolicy="no-referrer"
+                   priority
                  />
                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F1B]/90 via-[#1A1F1B]/20 to-transparent mix-blend-multiply" />
                  

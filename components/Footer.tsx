@@ -45,15 +45,15 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-background/70">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0" />
-                <span>123 Medical Center Blvd<br />Alexandria, LA 71301</span>
+                <span>One Jackson Square<br />Alexandria, LA 71301</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <span>(555) 123-4567</span>
+                <span>(318) 445-8120</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary shrink-0" />
-                <span>hello@alexjosephmd.com</span>
+                <span>concierge@alexjosephmd.com</span>
               </li>
             </ul>
           </div>

@@ -48,7 +48,7 @@ export function PriceTransparency() {
   };
 
   return (
-    <section className="py-16 md:py-48 bg-[#F4F2EC] relative border-t border-[#1A1F1B]/5">
+    <section className="py-16 md:py-32 bg-[#F4F2EC] relative border-t border-[#1A1F1B]/5">
       <div className="container mx-auto px-6 lg:px-12 max-w-[85rem]">
         <div className="text-center mb-12 md:mb-28">
           <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-[#8A928B] mb-6 block">No Surprises</span>

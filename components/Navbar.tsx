@@ -9,6 +9,21 @@ import { motion, AnimatePresence } from 'motion/react';import Image from 'next/i
 export function Navbar() {
   const { isNervousMode, toggleNervousMode } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const handleNervousToggle = () => {
+    if (!isNervousMode) {
+      setShowOverlay(true);
+      setTimeout(() => {
+        toggleNervousMode();
+      }, 1500);
+      setTimeout(() => {
+        setShowOverlay(false);
+      }, 4000);
+    } else {
+      toggleNervousMode();
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full glass-panel border-b-0 shadow-sm border-white/40">
@@ -32,7 +47,7 @@ export function Navbar() {
           <div className="flex items-center gap-4 ml-4 border-l border-border pl-4">
             <button
               suppressHydrationWarning
-              onClick={toggleNervousMode}
+              onClick={handleNervousToggle}
               className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${
                 isNervousMode 
                   ? 'bg-accent text-accent-foreground shadow-sm' 
@@ -79,7 +94,7 @@ export function Navbar() {
               <button
                 suppressHydrationWarning
                 onClick={() => {
-                  toggleNervousMode();
+                  handleNervousToggle();
                   setIsMobileMenuOpen(false);
                 }}
                 className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all flex items-center justify-between ${
@@ -119,6 +134,49 @@ export function Navbar() {
             <a href="#directions" className="flex items-center gap-2 hover:underline">
               <MapPin className="h-4 w-4" /> Get Directions to Clinic
             </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Nervous Mode Activation Overlay */}
+      <AnimatePresence>
+        {showOverlay && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="fixed inset-0 z-[100] bg-[#181A18] flex flex-col items-center justify-center pointer-events-auto"
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="w-32 h-32 rounded-full border border-[#596E5A] flex items-center justify-center relative mb-8"
+            >
+              <motion.div 
+                animate={{ scale: [1, 1.5, 1], opacity: [0.1, 0.3, 0.1] }} 
+                transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
+                className="absolute inset-0 bg-[#596E5A] rounded-full blur-xl"
+              />
+              <HeartPulse className="h-10 w-10 text-[#596E5A] relative z-10" />
+            </motion.div>
+            <motion.h3 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+              className="font-serif text-3xl md:text-4xl text-[#F4F2EC] mb-4 text-center"
+            >
+              Take a deep breath.
+            </motion.h3>
+            <motion.p 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.9, duration: 0.8 }}
+              className="text-[#F4F2EC]/60 font-light text-lg text-center leading-relaxed"
+            >
+              Quiet colors. Softer pacing.<br/>You are safe here.
+            </motion.p>
           </motion.div>
         )}
       </AnimatePresence>
