@@ -30,7 +30,7 @@ export function Navbar() {
       <div className="container mx-auto px-6 lg:px-12 h-24 md:h-28 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 md:gap-4 group">
           <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden shadow-sm border border-[#E3E1DB] flex items-center justify-center bg-white group-hover:shadow-md transition-all duration-500">
-            <Image src="/images/logo.png" alt="Dr. Alex Joseph Logo" fill className="object-contain p-1.5 transition-transform duration-700 group-hover:scale-105" />
+            <Image src="/images/clinic_logo_joseph.png" alt="Dr. Alex Joseph Logo" fill className="object-contain p-1.5 transition-transform duration-700 group-hover:scale-105" />
           </div>
           <div className="flex flex-col">
             <span className="font-serif text-xl md:text-2xl font-medium tracking-tight text-foreground transition-colors duration-500 group-hover:text-primary">Dr. Alex Joseph</span>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { HeartPulse, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
+import Image from 'next/image';
+import { HeartPulse, Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -7,10 +8,11 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           
-          <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="bg-primary/20 p-2 rounded-full">
-                <HeartPulse className="h-6 w-6 text-primary" />
+          {/* Brand Column */}
+          <div className="md:col-span-4 lg:col-span-5"> {/* Changed col-span */}
+            <Link href="/" className="flex items-center gap-4 group mb-8 inline-flex"> {/* Changed gap and added group, inline-flex */}
+              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-primary/50 transition-all duration-500"> {/* Replaced HeartPulse div */}
+                 <Image src="/images/clinic_logo_joseph.png" alt="Clinic Logo" width={48} height={48} className="object-cover" /> {/* Replaced HeartPulse icon with Image */}
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-xl font-medium tracking-tight">Dr. Alex Joseph</span>
