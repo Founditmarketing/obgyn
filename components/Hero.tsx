@@ -10,7 +10,7 @@ type JourneyType = 'expectant' | 'menopause' | 'teen' | 'general';
 
 const journeyContent = {
   general: {
-    title: "Elevated Women's Healthcare in Central Louisiana",
+    title: "Elevated Women's Healthcare in Cenla",
     subtitle: "Experience a digital sanctuary where clinical precision meets deep empathy. Small-town heart, big-city tech.",
     image: "/images/hero_general.png",
     cta: "Begin Your Journey",
