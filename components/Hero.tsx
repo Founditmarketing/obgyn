@@ -49,11 +49,11 @@ export function Hero() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-background pt-20 pb-16 lg:pt-0 lg:pb-0">
       
-      {/* Structural layout: Asymmetric split pane */}
-      <div className="container mx-auto px-6 lg:px-12 w-full h-full lg:h-[80vh] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 relative z-10 items-center">
+      {/* Structural layout: Symmetric split pane */}
+      <div className="container mx-auto px-6 lg:px-16 xl:px-24 w-full min-h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 relative z-10 items-center py-10 lg:py-0">
         
-        {/* Left pane: Massive Typography */}
-        <div className="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1 relative z-20">
+        {/* Left pane: Elegant Typography */}
+        <div className="flex flex-col justify-center order-2 lg:order-1 relative z-20 h-full">
           
           <div className="absolute -left-24 -top-24 w-64 h-64 bg-[#B89C86]/10 rounded-full blur-[80px] pointer-events-none transition-all duration-1000"></div>
 
@@ -82,7 +82,7 @@ export function Hero() {
                   visible: { opacity: 1, filter: 'blur(0px)', y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0, filter: 'blur(5px)', y: -10, transition: { duration: 0.4 } }
                 }}
-                className="font-serif text-[12vw] sm:text-[10vw] lg:text-[6rem] xl:text-[7rem] leading-[0.9] tracking-tighter text-foreground text-balance"
+                className="font-serif text-[12vw] sm:text-[10vw] lg:text-[4.5rem] xl:text-[5.5rem] leading-[1] tracking-tighter text-foreground text-balance"
               >
                 {journeyContent[activeJourney].title.split(' ').map((word, i) => (
                   <span key={i} className={`inline-block mr-[0.2em] ${i % 2 !== 0 ? 'italic font-light text-[#4A5D4E]' : 'font-medium'}`}>
@@ -131,7 +131,7 @@ export function Hero() {
         </div>
 
         {/* Right pane: Immersive Image Portal */}
-        <div className="lg:col-span-5 h-[50vh] lg:h-[100%] max-h-[75vh] w-full relative order-1 lg:order-2 self-end lg:self-center">
+        <div className="h-[50vh] lg:h-auto lg:aspect-[4/5] w-full relative order-1 lg:order-2 self-center">
           <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(26,31,27,0.2)] border border-[#E8E5DC]/50">
             <AnimatePresence>
                <motion.div
