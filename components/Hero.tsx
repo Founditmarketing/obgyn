@@ -14,28 +14,32 @@ const journeyContent = {
     subtitle: "Experience a digital sanctuary where clinical precision meets deep empathy. Small-town heart, big-city tech.",
     image: "/images/hero_general.png",
     cta: "Begin Your Journey",
-    icon: <Heart className="h-6 w-6 text-primary" />
+    icon: <Heart className="h-6 w-6" />,
+    label: "Overview"
   },
   expectant: {
     title: "Your Pregnancy Concierge Awaits",
     subtitle: "From your baby's first heartbeat to delivery day, we provide a 24/7 advocate and personalized care plan.",
     image: "/images/hero_expectant.png",
     cta: "Plan Your Delivery",
-    icon: <Baby className="h-6 w-6 text-primary" />
+    icon: <Baby className="h-6 w-6" />,
+    label: "Pregnancy"
   },
   menopause: {
     title: "Navigate Menopause with Confidence",
     subtitle: "Expert guidance, hormone therapy options, and compassionate support for your next chapter.",
     image: "/images/hero_menopause.png",
     cta: "Explore Treatment Options",
-    icon: <Activity className="h-6 w-6 text-primary" />
+    icon: <Activity className="h-6 w-6" />,
+    label: "Menopause"
   },
   teen: {
     title: "Your First Visit, Demystified",
     subtitle: "A judgment-free, comfortable environment designed to answer your questions and put you at ease.",
     image: "/images/hero_teen.png",
     cta: "What to Expect",
-    icon: <Sparkles className="h-6 w-6 text-primary" />
+    icon: <Sparkles className="h-6 w-6" />,
+    label: "First Visit"
   }
 };
 
@@ -157,20 +161,36 @@ export function Hero() {
               <HeroCanvas />
             </div>
 
+            {/* Visual Cue for Clickability */}
+            <div className="absolute bottom-[5.5rem] lg:bottom-[6.5rem] left-1/2 -translate-x-1/2 w-max z-20 pointer-events-none flex flex-col items-center gap-2">
+               <span className="text-[9px] uppercase tracking-[0.3em] text-white/90 font-medium drop-shadow-md">Select Care Path</span>
+               <motion.div animate={{ y: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }} className="w-[1px] h-6 bg-gradient-to-b from-white to-transparent shadow-sm"></motion.div>
+            </div>
+
             {/* In-Portal Navigation */}
-            <div className="absolute bottom-8 lg:bottom-12 left-1/2 -translate-x-1/2 glass-panel p-2 rounded-full flex gap-3 z-30">
+            <div className="absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 glass-panel p-2 rounded-full flex gap-2 z-30">
               {(['general', 'expectant', 'menopause', 'teen'] as JourneyType[]).map((type) => (
                 <button
                   key={type}
                   onClick={() => setActiveJourney(type)}
-                  className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-700 relative overflow-hidden group
-                    ${activeJourney === type ? 'bg-[#1A1F1B] text-[#F4F2EC] shadow-xl transform scale-100' : 'bg-transparent text-[#1A1F1B] hover:bg-white/40 transform scale-95 hover:scale-100'}
+                  className={`h-12 lg:h-14 rounded-full flex items-center justify-center transition-all duration-700 relative overflow-hidden group
+                    ${activeJourney === type ? 'bg-[#1A1F1B] text-[#F4F2EC] shadow-xl px-4 lg:px-6' : 'w-12 lg:w-14 bg-transparent text-[#1A1F1B] hover:bg-white/50 hover:shadow-sm'}
                   `}
-                  title={type}
+                  title={journeyContent[type].label}
                   suppressHydrationWarning
                 >
-                  <span className="relative z-10">
+                  <span className={`relative z-10 flex items-center gap-2 lg:gap-3 ${activeJourney === type ? 'text-[#F4F2EC]' : 'text-[#1A1F1B]'}`}>
                      {journeyContent[type].icon}
+                     {activeJourney === type && (
+                       <motion.span 
+                         initial={{ opacity: 0, width: 0 }} 
+                         animate={{ opacity: 1, width: 'auto' }} 
+                         transition={{ duration: 0.3, delay: 0.1 }}
+                         className="text-[9px] lg:text-[10px] uppercase tracking-[0.2em] font-medium whitespace-nowrap overflow-hidden"
+                       >
+                         {journeyContent[type].label}
+                       </motion.span>
+                     )}
                   </span>
                   {activeJourney === type && (
                      <motion.div layoutId="active-pill" className="absolute inset-0 bg-[#1A1F1B] rounded-full z-0" transition={{ type: "spring", stiffness: 200, damping: 20 }} />
