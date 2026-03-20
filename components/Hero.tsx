@@ -47,10 +47,10 @@ export function Hero() {
   const [activeJourney, setActiveJourney] = useState<JourneyType>('general');
 
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-background pt-20 pb-16 lg:pt-0 lg:pb-0">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-background pt-24 pb-8 lg:pt-0 lg:pb-0">
       
       {/* Structural layout: Symmetric split pane */}
-      <div className="container mx-auto px-5 sm:px-8 lg:px-16 xl:px-24 w-full min-h-[90vh] lg:min-h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-24 relative z-10 items-center justify-items-center pt-28 pb-16 lg:py-0">
+      <div className="container mx-auto px-5 sm:px-8 lg:px-16 xl:px-24 w-full min-h-[90vh] lg:min-h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-24 relative z-10 items-center justify-items-center py-4 lg:py-0">
         
         {/* Left pane: Elegant Typography */}
         <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left order-2 lg:order-1 relative z-20 w-full max-w-xl lg:max-w-none">
