@@ -47,45 +47,45 @@ export function PriceTransparency() {
   };
 
   return (
-    <section className="py-24 bg-background border-t border-border/50">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-6">
-            <DollarSign className="h-8 w-8 text-primary" />
-          </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-medium text-foreground mb-4">
-            Radical Transparency
+    <section className="py-32 md:py-48 bg-[#F4F2EC] relative border-t border-[#1A1F1B]/5">
+      <div className="container mx-auto px-6 lg:px-12 max-w-[85rem]">
+        <div className="text-center mb-20 md:mb-28">
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-[#8A928B] mb-6 block">No Surprises</span>
+          <h2 className="font-serif flex flex-col items-center justify-center text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-[#1A1F1B] mb-8 leading-[0.95] tracking-tighter">
+            Radical <br className="hidden md:block"/> <span className="italic font-light text-[#4A5D4E]">Transparency.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            No surprise bills. We believe you deserve to know the cost of your care upfront. Here are estimates for our most common procedures.
+          <p className="text-xl md:text-2xl text-[#1A1F1B]/70 font-light max-w-3xl mx-auto leading-relaxed text-balance">
+            We believe you deeply deserve to know the cost of your care upfront. Here are precise estimates for our most common restorative procedures.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-6 max-w-5xl mx-auto">
           {procedures.map((proc) => (
             <motion.div 
               key={proc.id}
               initial={false}
-              animate={{ backgroundColor: openId === proc.id ? 'var(--muted)' : 'var(--card)' }}
-              className="border border-border rounded-2xl overflow-hidden transition-colors"
+              animate={{ backgroundColor: openId === proc.id ? '#FFFFFF' : 'rgba(255,255,255,0.4)' }}
+              className="border border-[#1A1F1B]/10 rounded-[2rem] overflow-hidden transition-all duration-700 shadow-sm hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.05)] backdrop-blur-md"
             >
               <button
                 suppressHydrationWarning
                 onClick={() => toggleProcedure(proc.id)}
-                className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                className="w-full flex md:items-center flex-col md:flex-row justify-between p-8 md:p-10 text-left focus:outline-none group relative overflow-hidden"
               >
-                <div className="flex-1">
-                  <h3 className="font-serif text-xl font-medium text-foreground">{proc.name}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{proc.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none -translate-x-full"></div>
+
+                <div className="flex-1 mb-4 md:mb-0">
+                  <h3 className="font-serif text-2xl md:text-3xl font-medium text-[#1A1F1B] tracking-tight group-hover:text-[#4A5D4E] transition-colors">{proc.name}</h3>
+                  <p className="text-lg text-[#1A1F1B]/60 font-light mt-2 max-w-lg">{proc.description}</p>
                 </div>
                 
-                <div className="flex items-center gap-6">
-                  <div className="hidden md:flex flex-col items-end">
-                    <span className="text-sm font-medium text-foreground">{proc.basePrice}</span>
-                    <span className="text-xs text-muted-foreground">Estimated Base</span>
+                <div className="flex items-center gap-6 self-start md:self-auto w-full md:w-auto justify-between md:justify-end">
+                  <div className="flex flex-col md:items-end">
+                    <span className="text-2xl font-serif text-[#1A1F1B]">{proc.basePrice}</span>
+                    <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#8A928B] mt-1">Estimated Base</span>
                   </div>
                   
-                  <div className={`p-2 rounded-full transition-transform duration-300 ${openId === proc.id ? 'rotate-180 bg-primary/20 text-primary' : 'bg-muted text-muted-foreground'}`}>
+                  <div className={`p-3 rounded-full transition-transform duration-700 ${openId === proc.id ? 'rotate-180 bg-[#1A1F1B] text-[#F4F2EC] shadow-md' : 'bg-[#E8E5DC] text-[#1A1F1B]'}`}>
                     <ChevronDown className="h-5 w-5" />
                   </div>
                 </div>
@@ -97,39 +97,39 @@ export function PriceTransparency() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <div className="px-6 pb-6 pt-2 border-t border-border/50">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="bg-background p-4 rounded-xl border border-border">
-                          <h4 className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
-                            <ShieldAlert className="h-4 w-4 text-primary" />
+                    <div className="px-8 md:px-10 pb-10 pt-4 border-t border-[#1A1F1B]/5">
+                      <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                        <div className="bg-[#F4F2EC]/50 p-6 rounded-2xl border border-white">
+                          <h4 className="text-xs uppercase tracking-[0.2em] font-bold text-[#1A1F1B] mb-4 flex items-center gap-3">
+                            <ShieldAlert className="h-4 w-4 text-[#B89C86]" />
                             Insurance Coverage
                           </h4>
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-3 text-base text-[#1A1F1B]/70 font-light">
                             {proc.insuranceCovered === true ? (
-                              <><Check className="h-4 w-4 text-green-600" /> Typically Covered</>
+                              <><Check className="h-5 w-5 text-[#4A5D4E]" /> Typically completely covered</>
                             ) : proc.insuranceCovered === 'Partial' ? (
-                              <><ShieldAlert className="h-4 w-4 text-yellow-600" /> Partially Covered</>
+                              <><ShieldAlert className="h-5 w-5 text-[#B89C86]" /> Partially covered</>
                             ) : (
-                              <><ShieldAlert className="h-4 w-4 text-red-600" /> Not Covered</>
+                              <><ShieldAlert className="h-5 w-5 text-red-800/80" /> Generally not covered</>
                             )}
                           </div>
                         </div>
                         
-                        <div className="bg-background p-4 rounded-xl border border-border">
-                          <h4 className="text-sm font-medium text-foreground mb-2">The Details</h4>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
+                        <div className="p-2 md:p-0">
+                          <h4 className="text-xs uppercase tracking-[0.2em] font-bold text-[#1A1F1B] mb-4">Clinical Context</h4>
+                          <p className="text-base text-[#1A1F1B]/70 font-light leading-relaxed">
                             {proc.details}
                           </p>
                         </div>
                       </div>
                       
-                      <div className="mt-6 flex justify-between items-center text-sm">
-                        <p className="text-muted-foreground italic">
-                          *Prices are estimates. Final cost depends on your specific insurance plan and deductible.
+                      <div className="mt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-sm pt-8 border-t border-[#1A1F1B]/5">
+                        <p className="text-[#1A1F1B]/50 font-light italic text-balance">
+                          *These are estimates. Final investment depends on your specific insurance plan and deductible status.
                         </p>
-                        <button suppressHydrationWarning className="text-primary font-medium hover:underline">
+                        <button suppressHydrationWarning className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-[#1A1F1B] border-b border-[#1A1F1B] pb-1 hover:text-[#4A5D4E] hover:border-[#4A5D4E] transition-all whitespace-nowrap">
                           Verify My Insurance
                         </button>
                       </div>
@@ -141,9 +141,9 @@ export function PriceTransparency() {
           ))}
         </div>
         
-        <div className="mt-12 text-center">
-          <button suppressHydrationWarning className="bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-foreground/90 transition-all">
-            Contact Billing Concierge
+        <div className="mt-20 text-center flex justify-center">
+          <button suppressHydrationWarning className="bg-transparent border border-[#1A1F1B]/20 text-[#1A1F1B] px-12 py-6 rounded-full text-xs uppercase tracking-[0.25em] font-bold hover:bg-[#1A1F1B] hover:text-[#F4F2EC] hover:border-transparent transition-all duration-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transform">
+            Speak with Billing Concierge
           </button>
         </div>
       </div>

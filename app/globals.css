@@ -2,80 +2,112 @@
 @import "tw-animate-css";
 
 @theme {
-  --color-background: #F9F8F6;
-  --color-foreground: #2C302E;
-  --color-primary: #8E9E82;
-  --color-primary-foreground: #FFFFFF;
-  --color-secondary: #4A5D23;
-  --color-secondary-foreground: #FFFFFF;
-  --color-accent: #D28A7C;
-  --color-accent-foreground: #FFFFFF;
-  --color-muted: #E8E6E1;
-  --color-muted-foreground: #6B7280;
-  --color-border: #E8E6E1;
+  /* Ultra-Luxury Boutique Palette */
+  --color-background: #F4F2EC; /* Extremely soft, warm off-white */
+  --color-foreground: #1A1F1B; /* Deep, almost-black moss. Elegant contrast. */
+  --color-primary: #4A5D4E; /* Deep Sage / Heritage Green */
+  --color-primary-foreground: #F4F2EC;
+  --color-secondary: #D9D2C5; /* Champagne Sand */
+  --color-secondary-foreground: #1A1F1B;
+  --color-accent: #B89C86; /* Terracotta Clay */
+  --color-accent-foreground: #F4F2EC;
+  --color-muted: #E8E5DC;
+  --color-muted-foreground: #8A928B;
+  --color-border: #DEDCD5;
   --color-card: #FFFFFF;
-  --color-card-foreground: #2C302E;
+  --color-card-foreground: #1A1F1B;
+
+  --radius-lg: 2rem;
+  --radius-md: 1.5rem;
+  --radius-sm: 0.75rem;
   
-  --radius-lg: 1.5rem;
-  --radius-md: 1rem;
-  --radius-sm: 0.5rem;
+  --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
   :root {
-    --background: #F9F8F6;
-    --foreground: #2C302E;
-    --primary: #8E9E82;
-    --primary-foreground: #FFFFFF;
-    --secondary: #4A5D23;
-    --secondary-foreground: #FFFFFF;
-    --accent: #D28A7C;
-    --accent-foreground: #FFFFFF;
-    --muted: #E8E6E1;
-    --muted-foreground: #6B7280;
-    --border: #E8E6E1;
+    --background: #F4F2EC;
+    --foreground: #1A1F1B;
+    --primary: #4A5D4E;
+    --primary-foreground: #F4F2EC;
+    --secondary: #D9D2C5;
+    --secondary-foreground: #1A1F1B;
+    --accent: #B89C86;
+    --accent-foreground: #F4F2EC;
+    --muted: #E8E5DC;
+    --muted-foreground: #8A928B;
+    --border: #DEDCD5;
     --card: #FFFFFF;
-    --card-foreground: #2C302E;
+    --card-foreground: #1A1F1B;
   }
 
-  /* Nervous Patient Mode */
+  /* Nervous Patient Mode Retained but elevated */
   .nervous-mode {
-    --background: #2C302E;
-    --foreground: #F9F8F6;
-    --primary: #4A5D23;
-    --primary-foreground: #FFFFFF;
-    --secondary: #8E9E82;
-    --secondary-foreground: #2C302E;
-    --accent: #D28A7C;
-    --accent-foreground: #FFFFFF;
-    --muted: #3F4542;
-    --muted-foreground: #A0AAB2;
-    --border: #3F4542;
-    --card: #3F4542;
-    --card-foreground: #F9F8F6;
+    --background: #181A18;
+    --foreground: #F4F2EC;
+    --primary: #596E5A;
+    --primary-foreground: #181A18;
+    --secondary: #2C302C;
+    --secondary-foreground: #F4F2EC;
+    --accent: #B89C86;
+    --accent-foreground: #181A18;
+    --muted: #242824;
+    --muted-foreground: #8A928B;
+    --border: #2C302C;
+    --card: #1E221E;
+    --card-foreground: #F4F2EC;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
-    transition: background-color 0.5s ease, color 0.5s ease;
+    @apply font-sans selection:bg-[#4A5D4E] selection:text-[#F4F2EC];
+    transition: background-color 1.2s var(--ease-fluid), color 1.2s var(--ease-fluid);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+    letter-spacing: -0.04em;
   }
 }
 
 @layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .glass-panel {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 40px 80px -20px rgba(26, 31, 27, 0.08), 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
   }
   
   .nervous-mode .glass-panel {
-    background: rgba(44, 48, 46, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(44, 48, 44, 0.8) 0%, rgba(36, 40, 36, 0.4) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4), 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
   }
 
   .organic-shape {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }

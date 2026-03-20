@@ -15,23 +15,23 @@ export function BookingCalendar({ onSelect }: { onSelect: (date: Date, time: str
   const timeSlots = ["09:00 AM", "10:30 AM", "01:00 PM", "02:30 PM", "04:00 PM"];
 
   return (
-    <div>
-      <div className="mb-8 overflow-hidden rounded-2xl bg-[#F9F7F3] p-6 border border-[#E2E8E3]">
-        <h3 className="text-xs uppercase tracking-widest text-[#6D7D6D] font-bold mb-6">Upcoming Availabilities</h3>
-        <div className="flex gap-4 overflow-x-auto hide-scrollbar snap-x pb-2">
+    <div className="relative z-10">
+      <div className="mb-12">
+        <h3 className="text-[10px] uppercase tracking-[0.2em] text-[#7E867E] font-medium mb-6">Upcoming Availabilities</h3>
+        <div className="flex gap-4 overflow-x-auto hide-scrollbar snap-x pb-6">
           {upcomingDays.map((date, idx) => {
             const isSelected = date.getTime() === selectedDay.getTime();
             return (
               <button
                 key={idx}
                 onClick={() => setSelectedDay(date)}
-                className={`flex-shrink-0 snap-start w-24 py-5 rounded-2xl flex flex-col items-center justify-center transition-all border outline-none
-                  ${isSelected ? "bg-[#3C4A3E] border-[#3C4A3E] text-white shadow-lg shadow-[#3C4A3E]/20" : "bg-white border-[#D1DDD2] text-[#5C6D5D] hover:border-[#8B9D8B] hover:shadow-sm"}`}
+                className={`flex-shrink-0 snap-center w-[100px] py-6 rounded-3xl flex flex-col items-center justify-center transition-all duration-500 border outline-none
+                  ${isSelected ? "bg-[#2A312A] border-[#2A312A] text-white shadow-[0_12px_30px_rgba(42,49,42,0.15)] scale-105 transform" : "bg-white border-[#E3E1DB] text-[#7E867E] hover:border-[#BCA38F] hover:shadow-md"}`}
                 suppressHydrationWarning
               >
-                <span className="text-xs uppercase font-medium tracking-wide">{format(date, "EEE")}</span>
-                <span className={`text-3xl font-serif mt-2 leading-none ${isSelected ? "text-white" : "text-[#2C312C]"}`}>{format(date, "d")}</span>
-                <span className="text-[10px] mt-2 opacity-70 uppercase tracking-wider">{format(date, "MMM")}</span>
+                <span className="text-[10px] uppercase font-medium tracking-[0.15em] opacity-80">{format(date, "EEE")}</span>
+                <span className={`text-4xl font-serif mt-3 mb-1 leading-none ${isSelected ? "text-white" : "text-[#2A312A]"}`}>{format(date, "d")}</span>
+                <span className="text-[10px] opacity-60 uppercase tracking-widest">{format(date, "MMM")}</span>
               </button>
             );
           })}
@@ -39,15 +39,15 @@ export function BookingCalendar({ onSelect }: { onSelect: (date: Date, time: str
       </div>
 
       <div>
-        <h3 className="text-xs uppercase tracking-widest text-[#6D7D6D] font-bold mb-4">Available Consultation Times</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <h3 className="text-[10px] uppercase tracking-[0.2em] text-[#7E867E] font-medium mb-5">Available Consultations</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-5">
           {timeSlots.map((time) => (
             <motion.button
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
               key={time}
               onClick={() => onSelect(selectedDay, time)}
-              className="py-4 px-4 rounded-xl border border-[#D1DDD2] bg-white text-[#3C4A3E] font-medium hover:border-[#3C4A3E] hover:bg-[#F9F7F3] transition-colors shadow-sm"
+              className="py-5 px-6 rounded-2xl border border-[#E3E1DB] bg-white text-[#2A312A] font-medium tracking-wide text-sm hover:border-[#BCA38F] hover:shadow-lg hover:shadow-[#BCA38F]/10 transition-all duration-300"
               suppressHydrationWarning
             >
               {time}

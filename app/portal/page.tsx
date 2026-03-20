@@ -30,54 +30,62 @@ export default function PortalDashboard() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-[#F9F7F3] text-[#2C312C] font-sans selection:bg-[#E2E8E3]">
-      {/* Navigation placeholder if not using global nav */}
-      <main className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#2A312A] font-sans selection:bg-[#596E5A] relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#EBE5DB]/20 to-transparent pointer-events-none" />
+      <main className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-16"
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-20"
         >
-          <h1 className="text-4xl md:text-5xl font-serif text-[#3C4A3E] mb-4">
-            Welcome back, {user.displayName?.split(" ")[0] || "Guest"}
+          <span className="text-xs uppercase tracking-[0.2em] font-medium text-[#7E867E] mb-4 block">Secure Sanctuary</span>
+          <h1 className="text-5xl md:text-7xl font-serif text-[#2A312A] tracking-tight leading-tight mb-6">
+            Welcome back, <br className="hidden md:block" /><span className="text-[#596E5A] italic">{user.displayName?.split(" ")[0] || "Guest"}</span>.
           </h1>
-          <p className="text-[#6D7D6D] text-lg max-w-2xl">
-            This is your secure sanctuary. Review your health timeline, direct message your concierge care team, or schedule an upcoming visit.
+          <p className="text-[#7E867E] text-xl max-w-2xl font-light leading-relaxed">
+            Your personalized care journey, direct messaging access, and concierge scheduling—all in one elegant space.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Main Content Area */}
-          <div className="lg:col-span-2 space-y-12">
+          <div className="lg:col-span-8 space-y-16">
             <section>
-              <h2 className="text-2xl font-serif text-[#3C4A3E] mb-6 flex items-center gap-3">
-                <span className="w-8 h-[1px] bg-[#B0BEB0] block"></span>
-                Your Journey
+              <h2 className="text-3xl font-serif text-[#2A312A] mb-10 flex items-center gap-6">
+                <span className="w-12 h-[1px] bg-[#BCA38F] block"></span>
+                Your Core Journey
               </h2>
               <Timeline />
             </section>
           </div>
 
           {/* Sidebar / Quick Actions */}
-          <div className="space-y-8">
-            <div className="bg-[#E2E8E3]/50 rounded-3xl p-8 border border-[#B0BEB0]/30 shadow-sm">
-              <h3 className="text-xl font-serif text-[#3C4A3E] mb-4">Quick Actions</h3>
-              <div className="flex flex-col gap-4">
+          <div className="lg:col-span-4 space-y-8">
+            <motion.div 
+               initial={{ opacity: 0, x: 20 }}
+               animate={{ opacity: 1, x: 0 }}
+               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+               className="glass-panel rounded-[2rem] p-10 relative overflow-hidden group"
+            >
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#BCA38F]/10 rounded-full blur-3xl group-hover:bg-[#BCA38F]/20 transition-all duration-700"></div>
+              <h3 className="text-2xl font-serif text-[#2A312A] mb-8 relative z-10">Concierge Actions</h3>
+              <div className="flex flex-col gap-5 relative z-10">
                 <button
-                   className="w-full py-4 px-6 bg-[#3C4A3E] text-[#F9F7F3] rounded-full text-sm tracking-wide font-medium hover:bg-[#2A342B] transition-colors shadow-sm"
+                   className="w-full py-5 px-8 bg-[#2A312A] text-white rounded-full text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#596E5A] transition-all duration-500 shadow-md hover:shadow-lg transform hover:-translate-y-1"
                    suppressHydrationWarning
                 >
-                  Message Concierge
+                  Message Medical Team
                 </button>
                 <button
-                   className="w-full py-4 px-6 bg-white border border-[#B0BEB0] text-[#4A5D4C] rounded-full text-sm tracking-wide font-medium hover:bg-[#F4F6F4] hover:border-[#3C4A3E] transition-all shadow-sm"
+                   onClick={() => router.push('/schedule')}
+                   className="w-full py-5 px-8 bg-transparent border border-[#596E5A]/30 text-[#2A312A] rounded-full text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#596E5A]/5 hover:border-[#596E5A] transition-all duration-500"
                    suppressHydrationWarning
                 >
-                  Schedule Visit
+                  Schedule Next Visit
                 </button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </main>

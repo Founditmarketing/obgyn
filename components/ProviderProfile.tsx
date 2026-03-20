@@ -1,102 +1,110 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Play, Heart, Award, ShieldCheck } from 'lucide-react';
+import { Play, Heart, Award, ShieldCheck, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 export function ProviderProfile() {
   return (
-    <section id="expertise" className="py-24 bg-foreground text-background overflow-hidden relative">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16 max-w-7xl mx-auto">
-          
-          {/* Left Column: Video/Image Container */}
-          <div className="lg:w-1/2 w-full relative">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl"
-            >
-              {/* Placeholder for Cinematic Video */}
-              <Image 
-                src="https://picsum.photos/seed/doctor/800/1000?blur=1"
-                alt="Dr. Alex Joseph"
-                fill
-                className="object-cover"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button suppressHydrationWarning className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all group">
-                  <Play className="h-8 w-8 text-white ml-1 group-hover:scale-110 transition-transform" />
-                </button>
-              </div>
+    <section id="expertise" className="py-32 md:py-48 bg-[#1A1F1B] text-[#F4F2EC] overflow-hidden relative rounded-t-[3rem] mt-[-3rem] z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+      
+      {/* Absolute massive background typography */}
+      <div className="absolute top-10 left-0 w-full overflow-hidden flex justify-center opacity-[0.03] pointer-events-none select-none">
+         <span className="font-serif text-[20vw] whitespace-nowrap leading-none tracking-tighter">
+            Clinical Precision
+         </span>
+      </div>
 
-              {/* Caption */}
-              <div className="absolute bottom-8 left-8 right-8 text-white">
-                <h3 className="font-serif text-3xl font-medium mb-2">Meet Dr. Joseph</h3>
-                <p className="text-white/80">Watch our philosophy of care in action.</p>
-              </div>
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-20 xl:gap-32 max-w-[90rem] mx-auto">
+          
+          {/* Left Column: Image/Video */}
+          <div className="lg:w-5/12 w-full relative">
+            <motion.div 
+               initial={{ opacity: 0, y: 50 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, margin: "-100px" }}
+               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+               <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] border border-[#F4F2EC]/10 group">
+                 <Image 
+                   src="https://picsum.photos/seed/doctorport/1000/1200"
+                   alt="Dr. Alex Joseph"
+                   fill
+                   className="object-cover transition-transform duration-[2s] group-hover:scale-105"
+                   referrerPolicy="no-referrer"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F1B]/90 via-[#1A1F1B]/20 to-transparent mix-blend-multiply" />
+                 
+                 {/* Play Button Overlay */}
+                 <div className="absolute inset-0 flex items-center justify-center">
+                   <button suppressHydrationWarning className="w-24 h-24 bg-[#F4F2EC]/10 backdrop-blur-xl border border-[#F4F2EC]/20 rounded-full flex items-center justify-center hover:bg-[#F4F2EC]/20 transition-all duration-500 group/btn shadow-xl hover:shadow-2xl hover:scale-105 transform">
+                     <Play className="h-8 w-8 text-[#F4F2EC] ml-2 group-hover/btn:scale-110 transition-transform duration-500" />
+                   </button>
+                 </div>
+  
+                 {/* Caption */}
+                 <div className="absolute bottom-10 left-10 right-10">
+                   <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-[#D9D2C5] mb-3 block">Video Introduction</span>
+                   <h3 className="font-serif text-4xl mb-2 text-[#F4F2EC] tracking-tight">Meet Dr. Joseph</h3>
+                 </div>
+               </div>
             </motion.div>
-            
-            {/* Decorative Elements */}
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
-            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-accent/20 rounded-full blur-3xl -z-10" />
           </div>
 
-          {/* Right Column: Text & Credentials */}
-          <div className="lg:w-1/2 space-y-8">
-            <h2 className="font-serif text-4xl md:text-5xl font-medium leading-tight">
-              Clinical Precision.<br />
-              <span className="text-primary italic">Deep Empathy.</span>
-            </h2>
-            
-            <p className="text-lg text-background/70 leading-relaxed">
-              &quot;I believe that women&apos;s healthcare shouldn&apos;t feel clinical or rushed. It should feel like a partnership. My goal is to provide you with the highest level of medical expertise in an environment where you feel truly heard and deeply cared for.&quot;
-            </p>
-            <p className="text-lg font-medium text-background/90">— Dr. Alex Joseph</p>
+          {/* Right Column: Narrative */}
+          <div className="lg:w-7/12 w-full flex flex-col justify-center">
+            <motion.div
+               initial={{ opacity: 0, x: 30 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true, margin: "-100px" }}
+               transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+               className="space-y-12"
+            >
+               <h2 className="font-serif text-5xl md:text-7xl xl:text-[5.5rem] leading-[0.95] tracking-tighter text-[#F4F2EC]">
+                 Precision.<br />
+                 <span className="text-[#4A5D4E] italic font-light">Empathy.</span>
+               </h2>
+               
+               <p className="text-xl md:text-2xl text-[#F4F2EC]/70 leading-relaxed font-light max-w-2xl text-balance">
+                 &quot;I believe healthcare shouldn&apos;t feel clinical or rushed. My goal is to provide the highest level of medical expertise in an environment where you feel truly heard and deeply cared for.&quot;
+               </p>
+               
+               <p className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-[#D9D2C5]">— Dr. Alex Joseph</p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-background/20">
-              <div className="flex gap-4">
-                <div className="bg-background/10 p-3 rounded-xl h-fit">
-                  <Award className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium mb-1">Board Certified</h4>
-                  <p className="text-sm text-background/60">American Board of Obstetrics and Gynecology</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4">
-                <div className="bg-background/10 p-3 rounded-xl h-fit">
-                  <ShieldCheck className="h-6 w-6 text-secondary" />
-                </div>
-                <div>
-                  <h4 className="font-medium mb-1">Advanced Surgery</h4>
-                  <p className="text-sm text-background/60">Specializing in minimally invasive procedures</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4 sm:col-span-2">
-                <div className="bg-background/10 p-3 rounded-xl h-fit">
-                  <Heart className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <h4 className="font-medium mb-1">Community First</h4>
-                  <p className="text-sm text-background/60">Proudly serving Alexandria and Marksville families with small-town heart and big-city technology.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="pt-8">
-              <button suppressHydrationWarning className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium hover:bg-primary/90 transition-all">
-                Read Full Biography
-              </button>
-            </div>
+               <div className="w-full h-[1px] bg-gradient-to-r from-[#F4F2EC]/20 to-transparent my-6"></div>
+
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+                 <div className="flex gap-5 group">
+                   <div className="mt-1">
+                     <Award className="h-6 w-6 text-[#B89C86] group-hover:-translate-y-1 transition-transform duration-500" />
+                   </div>
+                   <div>
+                     <h4 className="font-medium text-lg mb-2 text-[#F4F2EC] font-serif">Board Certified</h4>
+                     <p className="text-sm text-[#F4F2EC]/60 leading-relaxed font-light">American Board of Obstetrics & Gynecology</p>
+                   </div>
+                 </div>
+                 
+                 <div className="flex gap-5 group">
+                   <div className="mt-1">
+                     <ShieldCheck className="h-6 w-6 text-[#B89C86] group-hover:-translate-y-1 transition-transform duration-500" />
+                   </div>
+                   <div>
+                     <h4 className="font-medium text-lg mb-2 text-[#F4F2EC] font-serif">Advanced Surgery</h4>
+                     <p className="text-sm text-[#F4F2EC]/60 leading-relaxed font-light">Specializing in minimally invasive robotics</p>
+                   </div>
+                 </div>
+               </div>
+               
+               <div className="pt-8">
+                 <button suppressHydrationWarning className="bg-transparent border border-[#F4F2EC]/30 text-[#F4F2EC] px-10 py-6 rounded-full text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#F4F2EC] hover:text-[#1A1F1B] hover:shadow-[0_20px_40px_-10px_rgba(244,242,236,0.3)] transition-all duration-700 flex items-center gap-5 group w-fit transform hover:-translate-y-1">
+                   Read Full Biography
+                   <span className="w-8 h-[1px] bg-[#F4F2EC] group-hover:w-12 group-hover:bg-[#1A1F1B] transition-all duration-500 relative">
+                      <ArrowRight className="absolute right-[-10px] top-1/2 -translate-y-1/2 h-4 w-4" />
+                   </span>
+                 </button>
+               </div>
+            </motion.div>
           </div>
 
         </div>
