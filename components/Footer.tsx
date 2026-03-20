@@ -34,8 +34,8 @@ export function Footer() {
             <h4 className="font-serif text-lg mb-6 text-primary">Explore</h4>
             <ul className="space-y-4 text-sm text-background/70">
               <li><Link href="#expertise" className="hover:text-primary transition-colors">Expertise</Link></li>
-              <li><Link href="#concierge" className="hover:text-primary transition-colors">Alexandria Concierge</Link></li>
-              <li><Link href="#doula" className="hover:text-primary transition-colors">Digital Doula</Link></li>
+              <li><Link href="#concierge" className="hover:text-primary transition-colors">Local Resources</Link></li>
+              <li><Link href="#doula" className="hover:text-primary transition-colors">Digital Tools</Link></li>
               <li><Link href="#book" className="hover:text-primary transition-colors">Book a Visit</Link></li>
             </ul>
           </div>
