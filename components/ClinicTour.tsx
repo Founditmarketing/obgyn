@@ -53,9 +53,9 @@ export function ClinicTour() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="tour" className="py-32 md:py-48 bg-[#F4F2EC] text-[#1A1F1B] overflow-hidden relative z-10 rounded-b-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
-      <div className="container mx-auto px-6 lg:px-12 mb-16 md:mb-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
+    <section id="tour" className="py-16 md:py-48 bg-[#F4F2EC] text-[#1A1F1B] overflow-hidden relative z-10 rounded-b-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
+      <div className="container mx-auto px-6 lg:px-12 mb-10 md:mb-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-10">
           <div className="max-w-3xl">
             <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-[#8A928B] mb-6 block">The Sanctuary</span>
             <h2 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-tighter text-[#1A1F1B] mb-8">

@@ -48,9 +48,9 @@ export function PriceTransparency() {
   };
 
   return (
-    <section className="py-32 md:py-48 bg-[#F4F2EC] relative border-t border-[#1A1F1B]/5">
+    <section className="py-16 md:py-48 bg-[#F4F2EC] relative border-t border-[#1A1F1B]/5">
       <div className="container mx-auto px-6 lg:px-12 max-w-[85rem]">
-        <div className="text-center mb-20 md:mb-28">
+        <div className="text-center mb-12 md:mb-28">
           <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-[#8A928B] mb-6 block">No Surprises</span>
           <h2 className="font-serif flex flex-col items-center justify-center text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-[#1A1F1B] mb-8 leading-[0.95] tracking-tighter">
             Radical <br className="hidden md:block"/> <span className="italic font-light text-[#4A5D4E]">Transparency.</span>
@@ -142,7 +142,7 @@ export function PriceTransparency() {
           ))}
         </div>
         
-        <div className="mt-20 text-center flex justify-center">
+        <div className="mt-12 md:mt-20 text-center flex justify-center">
           <Link href="/schedule" prefetch={true} className="inline-block bg-transparent border border-[#1A1F1B]/20 text-[#1A1F1B] px-12 py-6 rounded-full text-xs uppercase tracking-[0.25em] font-bold hover:bg-[#1A1F1B] hover:text-[#F4F2EC] hover:border-transparent transition-all duration-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transform">
             Speak with Billing Concierge
           </Link>

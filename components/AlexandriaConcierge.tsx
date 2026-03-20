@@ -31,12 +31,12 @@ export function AlexandriaConcierge() {
   ];
 
   return (
-    <section id="concierge" className="py-32 md:py-48 bg-[#1A1F1B] text-[#F4F2EC] relative z-0">
+    <section id="concierge" className="py-16 md:py-48 bg-[#1A1F1B] text-[#F4F2EC] relative z-0">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-20 xl:gap-32 max-w-[90rem] mx-auto items-center">
+        <div className="flex flex-col lg:flex-row gap-12 xl:gap-32 max-w-[90rem] mx-auto items-center">
           
           {/* Left Column: Text & Map */}
-          <div className="lg:w-5/12 space-y-12">
+          <div className="lg:w-5/12 space-y-8 lg:space-y-12">
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#F4F2EC]/5 text-[#F4F2EC] font-medium text-[10px] md:text-xs tracking-[0.2em] uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] border border-[#F4F2EC]/10">
               <MapPin className="h-4 w-4 text-[#B89C86]" />
               <span>Alexandria & Marksville, LA</span>

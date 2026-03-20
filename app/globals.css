@@ -63,6 +63,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -70,6 +72,8 @@
     color: var(--foreground);
     @apply font-sans selection:bg-[#4A5D4E] selection:text-[#F4F2EC];
     transition: background-color 1.2s var(--ease-fluid), color 1.2s var(--ease-fluid);
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
