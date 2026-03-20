@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-background: #F9F8F6;
+  --color-foreground: #2C302E;
+  --color-primary: #8E9E82;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #4A5D23;
+  --color-secondary-foreground: #FFFFFF;
+  --color-accent: #D28A7C;
+  --color-accent-foreground: #FFFFFF;
+  --color-muted: #E8E6E1;
+  --color-muted-foreground: #6B7280;
+  --color-border: #E8E6E1;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #2C302E;
+  
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
+  --radius-sm: 0.5rem;
+}
+
+@layer base {
+  :root {
+    --background: #F9F8F6;
+    --foreground: #2C302E;
+    --primary: #8E9E82;
+    --primary-foreground: #FFFFFF;
+    --secondary: #4A5D23;
+    --secondary-foreground: #FFFFFF;
+    --accent: #D28A7C;
+    --accent-foreground: #FFFFFF;
+    --muted: #E8E6E1;
+    --muted-foreground: #6B7280;
+    --border: #E8E6E1;
+    --card: #FFFFFF;
+    --card-foreground: #2C302E;
+  }
+
+  /* Nervous Patient Mode */
+  .nervous-mode {
+    --background: #2C302E;
+    --foreground: #F9F8F6;
+    --primary: #4A5D23;
+    --primary-foreground: #FFFFFF;
+    --secondary: #8E9E82;
+    --secondary-foreground: #2C302E;
+    --accent: #D28A7C;
+    --accent-foreground: #FFFFFF;
+    --muted: #3F4542;
+    --muted-foreground: #A0AAB2;
+    --border: #3F4542;
+    --card: #3F4542;
+    --card-foreground: #F9F8F6;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .nervous-mode .glass-panel {
+    background: rgba(44, 48, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .organic-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
