@@ -4,24 +4,23 @@ import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
+const count = 150;
+const initialParticles = Array.from({ length: count }).map(() => ({
+  t: Math.random() * 100,
+  factor: 0.5 + Math.random(),
+  speed: 0.005 + Math.random() / 300,
+  xFactor: -40 + Math.random() * 80,
+  yFactor: -40 + Math.random() * 80,
+  zFactor: -40 + Math.random() * 80,
+  mx: 0,
+  my: 0
+}));
+
 function BiophilicParticles() {
-  const count = 150;
   const mesh = useRef<THREE.InstancedMesh>(null);
   
   const dummy = useMemo(() => new THREE.Object3D(), []);
-  const particles = useMemo(() => {
-    const temp = [];
-    for (let i = 0; i < count; i++) {
-      const t = Math.random() * 100;
-      const factor = 0.5 + Math.random();
-      const speed = 0.005 + Math.random() / 300;
-      const xFactor = -40 + Math.random() * 80;
-      const yFactor = -40 + Math.random() * 80;
-      const zFactor = -40 + Math.random() * 80;
-      temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
-    }
-    return temp;
-  }, [count]);
+  const particles = useMemo(() => initialParticles, []);
 
   useFrame(() => {
     particles.forEach((particle, i) => {

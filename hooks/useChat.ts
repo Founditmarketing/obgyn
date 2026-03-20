@@ -26,7 +26,9 @@ export function useChat() {
 
   useEffect(() => {
     if (!user) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMessages([]);
+       
       setLoading(false);
       return;
     }

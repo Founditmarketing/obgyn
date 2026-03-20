@@ -74,7 +74,7 @@ export default function SchedulePage() {
               <div className="bg-white/60 backdrop-blur-sm border border-[#E3E1DB] px-8 py-5 rounded-2xl mb-10 shadow-sm flex items-center gap-4">
                  <div className="w-2 h-2 rounded-full bg-[#BCA38F] animate-pulse"></div>
                  <p className="text-sm text-[#596E5A]">
-                   You're confirming a visit on <strong className="font-medium text-[#2A312A]">{selectedDate?.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</strong> at <strong className="font-medium text-[#2A312A]">{selectedTime}</strong>.
+                   You&apos;re confirming a visit on <strong className="font-medium text-[#2A312A]">{selectedDate?.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</strong> at <strong className="font-medium text-[#2A312A]">{selectedTime}</strong>.
                  </p>
               </div>
               <IntakeForm onSubmit={handleFormSubmit} />
@@ -88,7 +88,7 @@ export default function SchedulePage() {
               </div>
               <h2 className="text-4xl font-serif text-[#2A312A] mb-5 tracking-tight">Sanctuary Reserved</h2>
               <p className="text-[#7E867E] text-lg max-w-md font-light leading-relaxed">
-                We've secured your appointment. You will receive a secure portal notification shortly with preparatory instructions for your visit.
+                We&apos;ve secured your appointment. You will receive a secure portal notification shortly with preparatory instructions for your visit.
               </p>
               <button
                 className="mt-12 px-10 py-5 bg-[#2A312A] text-white rounded-full text-xs uppercase tracking-[0.1em] font-medium hover:bg-[#596E5A] transition-all duration-500 shadow-lg transform hover:-translate-y-1"
