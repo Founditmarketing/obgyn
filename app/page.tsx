@@ -5,7 +5,6 @@ import { AlexandriaConcierge } from '@/components/AlexandriaConcierge';
 import { ClinicTour } from '@/components/ClinicTour';
 import { Testimonials } from '@/components/Testimonials';
 import { PriceTransparency } from '@/components/PriceTransparency';
-import { Onboarding } from '@/components/Onboarding';
 
 import { ScrollReveal } from '@/components/visuals/ScrollReveal';
 
@@ -19,7 +18,6 @@ export default function Home() {
       <ScrollReveal><DigitalDoula /></ScrollReveal>
       <ScrollReveal><AlexandriaConcierge /></ScrollReveal>
       <ScrollReveal><PriceTransparency /></ScrollReveal>
-      <ScrollReveal><Onboarding /></ScrollReveal>
     </div>
   );
 }
