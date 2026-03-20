@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Play, ArrowRight } from 'lucide-react';
 
 const tourItems = [
@@ -11,7 +12,7 @@ const tourItems = [
     title: "The Sanctuary Waiting Room",
     category: "Environment",
     duration: "0:45",
-    image: "https://picsum.photos/seed/waitingroom/800/600?blur=1",
+    image: "/images/tour_waiting_room.png",
     description: "Designed to lower cortisol. Natural light, living walls, and herbal tea on arrival."
   },
   {
@@ -19,7 +20,7 @@ const tourItems = [
     title: "Meet Nurse Sarah",
     category: "Care Team",
     duration: "1:20",
-    image: "https://picsum.photos/seed/nurse/800/600?blur=1",
+    image: "/images/tour_nurse.png",
     description: "Your dedicated patient advocate talks about our personalized care approach."
   },
   {
@@ -27,7 +28,7 @@ const tourItems = [
     title: "State-of-the-Art Ultrasound",
     category: "Technology",
     duration: "1:05",
-    image: "https://picsum.photos/seed/ultrasound/800/600?blur=1",
+    image: "/images/tour_ultrasound.png",
     description: "See your baby in stunning 4D detail in our comfortable imaging suite."
   },
   {
@@ -35,7 +36,7 @@ const tourItems = [
     title: "Private Recovery Suites",
     category: "Environment",
     duration: "0:55",
-    image: "https://picsum.photos/seed/recovery/800/600?blur=1",
+    image: "/images/tour_recovery.png",
     description: "Luxury hotel-inspired rooms for your postpartum recovery."
   },
   {
@@ -43,7 +44,7 @@ const tourItems = [
     title: "The Lab & Diagnostics",
     category: "Technology",
     duration: "0:30",
-    image: "https://picsum.photos/seed/lab/800/600?blur=1",
+    image: "/images/tour_lab.png",
     description: "In-house testing means faster results and less waiting for you."
   }
 ];
@@ -52,7 +53,7 @@ export function ClinicTour() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-32 md:py-48 bg-[#F4F2EC] text-[#1A1F1B] overflow-hidden relative z-10 rounded-b-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
+    <section id="tour" className="py-32 md:py-48 bg-[#F4F2EC] text-[#1A1F1B] overflow-hidden relative z-10 rounded-b-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
       <div className="container mx-auto px-6 lg:px-12 mb-16 md:mb-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
           <div className="max-w-3xl">
@@ -64,9 +65,9 @@ export function ClinicTour() {
               Take a cinematic tour of our facilities and meet the team before you step through the doors. No surprises, just absolute peace of mind.
             </p>
           </div>
-          <button suppressHydrationWarning className="flex items-center gap-4 text-[#1A1F1B] hover:text-[#4A5D4E] transition-colors font-medium group text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0 mb-3 border-b border-[#1A1F1B]/20 pb-2 hover:border-[#4A5D4E]">
+          <Link href="#tour" prefetch={true} className="inline-flex items-center gap-4 text-[#1A1F1B] hover:text-[#4A5D4E] transition-colors font-medium group text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0 mb-3 border-b border-[#1A1F1B]/20 pb-2 hover:border-[#4A5D4E]">
             View All Episodes <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform duration-500" />
-          </button>
+          </Link>
         </div>
       </div>
 

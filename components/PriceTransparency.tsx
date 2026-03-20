@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Link from 'next/link';
 import { ChevronDown, Check, DollarSign, ShieldAlert } from 'lucide-react';
 
 const procedures = [
@@ -129,9 +130,9 @@ export function PriceTransparency() {
                         <p className="text-[#1A1F1B]/50 font-light italic text-balance">
                           *These are estimates. Final investment depends on your specific insurance plan and deductible status.
                         </p>
-                        <button suppressHydrationWarning className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-[#1A1F1B] border-b border-[#1A1F1B] pb-1 hover:text-[#4A5D4E] hover:border-[#4A5D4E] transition-all whitespace-nowrap">
+                        <Link href="/schedule" prefetch={true} className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-[#1A1F1B] border-b border-[#1A1F1B] pb-1 hover:text-[#4A5D4E] hover:border-[#4A5D4E] transition-all whitespace-nowrap">
                           Verify My Insurance
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
@@ -142,9 +143,9 @@ export function PriceTransparency() {
         </div>
         
         <div className="mt-20 text-center flex justify-center">
-          <button suppressHydrationWarning className="bg-transparent border border-[#1A1F1B]/20 text-[#1A1F1B] px-12 py-6 rounded-full text-xs uppercase tracking-[0.25em] font-bold hover:bg-[#1A1F1B] hover:text-[#F4F2EC] hover:border-transparent transition-all duration-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transform">
+          <Link href="/schedule" prefetch={true} className="inline-block bg-transparent border border-[#1A1F1B]/20 text-[#1A1F1B] px-12 py-6 rounded-full text-xs uppercase tracking-[0.25em] font-bold hover:bg-[#1A1F1B] hover:text-[#F4F2EC] hover:border-transparent transition-all duration-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transform">
             Speak with Billing Concierge
-          </button>
+          </Link>
         </div>
       </div>
     </section>

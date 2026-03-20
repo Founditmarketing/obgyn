@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Link from 'next/link';
 import { ClipboardList, Map, Stethoscope, ArrowRight, X } from 'lucide-react';
 
 type ToolType = 'birthplan' | 'map' | 'symptoms' | null;
@@ -34,9 +35,9 @@ export function DigitalDoula() {
               <span className="text-[#1A1F1B] font-medium group-hover:text-[#4A5D4E] transition-colors">I plan to breastfeed</span>
             </label>
           </div>
-          <button className="w-full bg-[#1A1F1B] text-[#F4F2EC] py-5 rounded-full font-medium hover:bg-[#4A5D4E] transition-all duration-500 mt-6 shadow-lg shadow-[#1A1F1B]/10 hover:shadow-[#4A5D4E]/20 text-xs tracking-[0.2em] uppercase">
-            Generate Plan
-          </button>
+            <Link href="/portal" prefetch={true} className="block text-center w-full bg-[#1A1F1B] text-[#F4F2EC] py-5 rounded-full font-medium hover:bg-[#4A5D4E] transition-all duration-500 mt-6 shadow-lg shadow-[#1A1F1B]/10 hover:shadow-[#4A5D4E]/20 text-xs tracking-[0.2em] uppercase">
+              Generate Plan
+            </Link>
         </div>
       )
     },
@@ -84,9 +85,9 @@ export function DigitalDoula() {
               autoFocus
             ></textarea>
           </div>
-          <button className="w-full bg-[#1A1F1B] text-[#F4F2EC] py-5 rounded-full font-medium hover:bg-[#B89C86] transition-all duration-500 mt-2 shadow-lg shadow-[#1A1F1B]/10 text-xs tracking-[0.2em] uppercase hover:-translate-y-1 transform">
-            Analyze Symptoms
-          </button>
+            <Link href="/portal" prefetch={true} className="block text-center w-full bg-[#1A1F1B] text-[#F4F2EC] py-5 rounded-full font-medium hover:bg-[#B89C86] transition-all duration-500 mt-2 shadow-lg shadow-[#1A1F1B]/10 text-xs tracking-[0.2em] uppercase hover:-translate-y-1 transform">
+              Analyze Symptoms
+            </Link>
           <p className="text-[10px] text-center text-[#1A1F1B]/50 mt-4 uppercase tracking-[0.1em]">
             Experiencing a medical emergency? Call 911 immediately.
           </p>

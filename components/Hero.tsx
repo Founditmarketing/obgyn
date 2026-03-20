@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Sparkles, Baby, Activity, Heart } from 'lucide-react';
 
 type JourneyType = 'expectant' | 'menopause' | 'teen' | 'general';
@@ -59,34 +60,72 @@ export function Hero() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeJourney}
-              initial={{ opacity: 0, filter: 'blur(10px)', y: 30 }}
-              animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-              exit={{ opacity: 0, filter: 'blur(10px)', y: -30 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+                },
+                exit: { 
+                  opacity: 0,
+                  transition: { duration: 0.3, staggerChildren: 0.05, staggerDirection: -1 }
+                }
+              }}
               className="space-y-10 relative"
             >
-              <h1 className="font-serif text-[12vw] sm:text-[10vw] lg:text-[6rem] xl:text-[7rem] leading-[0.9] tracking-tighter text-foreground text-balance">
+              <motion.h1 
+                variants={{
+                  hidden: { opacity: 0, filter: 'blur(10px)', y: 20 },
+                  visible: { opacity: 1, filter: 'blur(0px)', y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+                  exit: { opacity: 0, filter: 'blur(5px)', y: -10, transition: { duration: 0.4 } }
+                }}
+                className="font-serif text-[12vw] sm:text-[10vw] lg:text-[6rem] xl:text-[7rem] leading-[0.9] tracking-tighter text-foreground text-balance"
+              >
                 {journeyContent[activeJourney].title.split(' ').map((word, i) => (
                   <span key={i} className={`inline-block mr-[0.2em] ${i % 2 !== 0 ? 'italic font-light text-[#4A5D4E]' : 'font-medium'}`}>
                     {word}
                   </span>
                 ))}
-              </h1>
+              </motion.h1>
               
-              <div className="h-[1px] w-32 bg-gradient-to-r from-[#DEDCD5] to-transparent"></div>
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, scaleX: 0, transformOrigin: 'left' },
+                  visible: { opacity: 1, scaleX: 1, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+                  exit: { opacity: 0, transition: { duration: 0.3 } }
+                }}
+                className="h-[1px] w-32 bg-gradient-to-r from-[#DEDCD5] to-transparent"
+              ></motion.div>
 
-              <p className="text-xl lg:text-3xl font-light text-foreground/80 max-w-xl leading-relaxed text-balance">
+              <motion.p 
+                variants={{
+                  hidden: { opacity: 0, filter: 'blur(10px)', y: 20 },
+                  visible: { opacity: 1, filter: 'blur(0px)', y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+                  exit: { opacity: 0, filter: 'blur(5px)', y: -10, transition: { duration: 0.4 } }
+                }}
+                className="text-xl lg:text-3xl font-light text-foreground/80 max-w-xl leading-relaxed text-balance"
+              >
                 {journeyContent[activeJourney].subtitle}
-              </p>
+              </motion.p>
               
-              <div className="pt-6 flex flex-col sm:flex-row items-start gap-8">
-                <button suppressHydrationWarning className="bg-foreground text-background px-10 py-6 rounded-full text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#4A5D4E] transition-all duration-700 flex items-center gap-5 group shadow-[0_20px_40px_-10px_rgba(26,31,27,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(74,93,78,0.5)] transform hover:-translate-y-1">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+                  exit: { opacity: 0, y: -10, transition: { duration: 0.4 } }
+                }}
+                className="pt-6 flex flex-col sm:flex-row items-start gap-8"
+              >
+                <Link href="/schedule" prefetch={true} className="bg-foreground text-background px-10 py-6 rounded-full text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#4A5D4E] transition-all duration-700 flex items-center gap-5 group shadow-[0_20px_40px_-10px_rgba(26,31,27,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(74,93,78,0.5)] transform hover:-translate-y-1">
                   {journeyContent[activeJourney].cta}
                   <span className="w-8 h-[1px] bg-background/50 group-hover:w-12 group-hover:bg-background transition-all duration-500 relative">
                     <ArrowRight className="absolute right-[-10px] top-1/2 -translate-y-1/2 h-4 w-4" />
                   </span>
-                </button>
-              </div>
+                </Link>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -94,13 +133,13 @@ export function Hero() {
         {/* Right pane: Immersive Image Portal */}
         <div className="lg:col-span-5 h-[50vh] lg:h-[100%] max-h-[75vh] w-full relative order-1 lg:order-2 self-end lg:self-center">
           <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(26,31,27,0.2)] border border-[#E8E5DC]/50">
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
                <motion.div
                  key={activeJourney}
-                 initial={{ opacity: 0, scale: 1.15, rotate: -2 }}
-                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                 exit={{ opacity: 0, scale: 0.95 }}
-                 transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+                 initial={{ opacity: 0, scale: 1.05 }}
+                 animate={{ opacity: 1, scale: 1 }}
+                 exit={{ opacity: 0, scale: 0.98 }}
+                 transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
                  className="absolute inset-0"
                >
                   <Image
