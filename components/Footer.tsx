@@ -23,11 +23,11 @@ export function Footer() {
               A digital sanctuary for women&apos;s healthcare in Alexandria, LA. Featuring biophilic design, hyper-personalized patient journeys, and luxury hospitality.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-background/50 hover:text-primary transition-colors">
-                <Instagram className="h-5 w-5" />
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary hover:bg-primary hover:text-[#181A18] transition-all duration-300">
+                <Instagram className="h-4 w-4" />
               </a>
-              <a href="#" className="text-background/50 hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Like us on Facebook" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary hover:bg-primary hover:text-[#181A18] transition-all duration-300">
+                <Facebook className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -38,7 +38,7 @@ export function Footer() {
               <li><Link href="#expertise" className="hover:text-primary transition-colors">Expertise</Link></li>
               <li><Link href="#concierge" className="hover:text-primary transition-colors">Local Resources</Link></li>
               <li><Link href="#doula" className="hover:text-primary transition-colors">Digital Tools</Link></li>
-              <li><Link href="#book" className="hover:text-primary transition-colors">Book a Visit</Link></li>
+              <li><Link href="/schedule" className="hover:text-primary transition-colors">Book a Visit</Link></li>
             </ul>
           </div>
 
@@ -63,9 +63,9 @@ export function Footer() {
           <div>
             <h4 className="font-serif text-lg mb-6 text-primary">Legal</h4>
             <ul className="space-y-4 text-sm text-background/70">
-              <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">HIPAA Notice</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">HIPAA Notice</Link></li>
             </ul>
           </div>
 

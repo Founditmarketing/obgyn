@@ -207,9 +207,17 @@ export function DigitalDoula() {
               <h3 className="font-serif text-3xl font-medium text-[#1A1F1B] mb-4 tracking-tight group-hover:text-[#4A5D4E] transition-colors duration-500">{tool.title}</h3>
               <p className="text-lg text-[#1A1F1B]/60 mb-8 font-light leading-relaxed">{tool.description}</p>
               
-              <div className="flex items-center text-[10px] uppercase tracking-[0.2em] text-[#1A1F1B] font-bold group-hover:text-[#B89C86] transition-colors border-b border-transparent group-hover:border-[#B89C86] pb-1 w-fit group-hover:translate-x-2">
-                Try it now <ArrowRight className="ml-3 h-4 w-4" />
-              </div>
+              <button 
+                className="flex items-center gap-2 group/btn mt-auto pt-6"
+                aria-label={`Try ${tool.title} now`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveTool(tool.id as any);
+                }}
+              >
+                 <span className="text-sm font-medium text-foreground/70 group-hover/btn:text-primary transition-colors">Try it now</span>
+                 <ArrowRight className="h-4 w-4 text-foreground/40 group-hover/btn:text-primary group-hover/btn:translate-x-1 transition-all" />
+              </button>
             </motion.div>
           ))}
         </div>

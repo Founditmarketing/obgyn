@@ -39,7 +39,11 @@ export function ProviderProfile() {
                  
                  {/* Play Button Overlay */}
                  <div className="absolute inset-0 flex items-center justify-center">
-                   <button suppressHydrationWarning className="w-24 h-24 bg-[#F4F2EC]/10 backdrop-blur-xl border border-[#F4F2EC]/20 rounded-full flex items-center justify-center hover:bg-[#F4F2EC]/20 transition-all duration-500 group/btn shadow-xl hover:shadow-2xl hover:scale-105 transform">
+                   <button 
+                     suppressHydrationWarning 
+                     aria-label="Play clinic introduction video"
+                     className="w-24 h-24 bg-[#F4F2EC]/10 backdrop-blur-xl border border-[#F4F2EC]/20 rounded-full flex items-center justify-center hover:bg-[#F4F2EC]/20 transition-all duration-500 group/btn shadow-xl hover:shadow-2xl hover:scale-105 transform"
+                   >
                      <Play className="h-8 w-8 text-[#F4F2EC] ml-2 group-hover/btn:scale-110 transition-transform duration-500" />
                    </button>
                  </div>

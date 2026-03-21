@@ -92,7 +92,7 @@ export function Hero() {
                   <span key={i} className={`inline-block mr-[0.2em] ${i % 2 !== 0 ? 'italic font-light text-[#4A5D4E]' : 'font-medium'}`}>
                     {word}
                   </span>
-                ))}
+                )).reduce((prev, curr) => [prev, ' ', curr] as any)}
               </motion.h1>
               
               <motion.div 
@@ -173,6 +173,7 @@ export function Hero() {
                 <button
                   key={type}
                   onClick={() => setActiveJourney(type)}
+                  aria-label={`Select ${journeyContent[type].label} Path`}
                   className={`h-12 lg:h-14 rounded-full flex items-center justify-center transition-all duration-700 relative overflow-hidden group
                     ${activeJourney === type ? 'bg-[#1A1F1B] text-[#F4F2EC] shadow-xl px-4 lg:px-6' : 'w-12 lg:w-14 bg-transparent text-[#1A1F1B] hover:bg-white/50 hover:shadow-sm'}
                   `}

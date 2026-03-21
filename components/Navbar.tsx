@@ -60,7 +60,7 @@ export function Navbar() {
             </button>
             <LoginButton />
             <Link 
-              href="#book" 
+              href="/schedule" 
               className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors shadow-sm"
             >
               Book Visit
@@ -71,6 +71,7 @@ export function Navbar() {
         {/* Mobile Menu Toggle */}
         <button 
           suppressHydrationWarning
+          aria-label="Toggle Mobile Menu"
           className="md:hidden p-2 text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -111,7 +112,7 @@ export function Navbar() {
               </button>
               
               <Link 
-                href="#book" 
+                href="/schedule" 
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full bg-primary text-primary-foreground text-center px-5 py-3 rounded-xl font-medium mt-2"
               >
