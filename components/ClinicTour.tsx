@@ -53,7 +53,7 @@ export function ClinicTour() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="tour" className="py-16 md:py-32 bg-[#F4F2EC] text-[#1A1F1B] overflow-hidden relative z-10 rounded-b-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
+    <section id="tour" className="py-24 lg:py-32 bg-[#F4F2EC] text-[#1A1F1B] overflow-hidden relative z-10 rounded-b-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
       <div className="container mx-auto px-6 lg:px-12 mb-10 md:mb-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-10">
           <div className="max-w-3xl">

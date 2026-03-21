@@ -179,7 +179,7 @@ export function DigitalDoula() {
   ];
 
   return (
-    <section id="doula" className="py-16 md:py-32 bg-[#E8E5DC] text-[#1A1F1B] rounded-[3rem] shadow-[inset_0_20px_50px_rgba(0,0,0,0.02)] mt-[-2rem] z-20 relative">
+    <section id="doula" className="py-24 lg:py-32 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-4xl mx-auto mb-12 md:mb-28">
           <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-[#8A928B] mb-6 block">Always Accessible</span>

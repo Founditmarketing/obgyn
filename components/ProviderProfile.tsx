@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export function ProviderProfile() {
   return (
-    <section id="expertise" className="py-16 md:py-32 bg-[#1A1F1B] text-[#F4F2EC] overflow-hidden relative rounded-t-[3rem] mt-[-3rem] z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+    <section id="expertise" className="py-24 lg:py-32 bg-[#1A1F1B] text-[#F4F2EC] overflow-hidden relative rounded-t-[3rem] mt-[-3rem] z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
       
       {/* Absolute massive background typography */}
       <div className="absolute top-10 left-0 w-full overflow-hidden flex justify-center opacity-[0.03] pointer-events-none select-none">

@@ -29,7 +29,7 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section className="py-16 md:py-32 bg-[#1A1F1B] text-[#F4F2EC] relative border-b border-[#F4F2EC]/5">
+    <section className="py-24 lg:py-32 bg-[#1A1F1B] text-[#F4F2EC] relative border-b border-[#F4F2EC]/5">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-16 md:mb-24">
           <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-[#D9D2C5] mb-6 block">Patient Stories</span>
