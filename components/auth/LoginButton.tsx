@@ -15,24 +15,16 @@ export function LoginButton() {
 
   const handleLogin = async () => {
     setIsLoggingIn(true);
-    const provider = new GoogleAuthProvider();
-    try {
-      await signInWithPopup(auth, provider);
-      router.push("/portal");
-    } catch (error) {
-      console.error("Login failed:", error);
-    } finally {
-      setIsLoggingIn(false);
-    }
+    // Fast simulated login for presentation
+    setTimeout(() => {
+      localStorage.setItem('demo_logged_in', 'true');
+      window.location.href = '/portal';
+    }, 800);
   };
 
   const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      router.push("/");
-    } catch (error) {
-      console.error("Logout failed", error);
-    }
+    localStorage.removeItem('demo_logged_in');
+    window.location.href = '/';
   };
 
   if (loading) {
