@@ -2,20 +2,20 @@
 @import "tw-animate-css";
 
 @theme {
-  /* Ultra-Luxury Boutique Palette (Midnight Fig & Ambient Copper) */
-  --color-background: #FCFBF9; /* Pearl white with softest warmth */
-  --color-foreground: #2B171F; /* Deep Charcoal Berry. Very elegant. */
-  --color-primary: #5C3141; /* Midnight Fig / Deep Bordeaux */
-  --color-primary-foreground: #FFFDFD;
-  --color-secondary: #E6D5D1; /* Soft Cashmere / Rose Beige */
-  --color-secondary-foreground: #3A1E29;
-  --color-accent: #C78B73; /* Spun Copper / Muted Clay */
-  --color-accent-foreground: #FFFDFD;
-  --color-muted: #F3EBE9;
-  --color-muted-foreground: #8A7672;
-  --color-border: #E6DCD9;
+  /* Ultra-Luxury Biophilic Palette (Deep Emerald & Brushed Brass) */
+  --color-background: #FCFBF8; /* Warm gallery white, extremely clean */
+  --color-foreground: #1D2321; /* Deep forest-tinted charcoal */
+  --color-primary: #153A2D; /* Deep Emerald / Hunter Green */
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #EFECE5; /* Soft Oat / Travertine */
+  --color-secondary-foreground: #1D2321;
+  --color-accent: #C7A163; /* Brushed Brass / Antique Gold */
+  --color-accent-foreground: #1D2321;
+  --color-muted: #E6E3DB;
+  --color-muted-foreground: #767E79;
+  --color-border: #D8D4CC;
   --color-card: #FFFFFF;
-  --color-card-foreground: #2B171F;
+  --color-card-foreground: #1D2321;
 
   --radius-lg: 2rem;
   --radius-md: 1.5rem;
@@ -26,36 +26,36 @@
 
 @layer base {
   :root {
-    --background: #FCFBF9;
-    --foreground: #2B171F;
-    --primary: #5C3141;
-    --primary-foreground: #FFFDFD;
-    --secondary: #E6D5D1;
-    --secondary-foreground: #3A1E29;
-    --accent: #C78B73;
-    --accent-foreground: #FFFDFD;
-    --muted: #F3EBE9;
-    --muted-foreground: #8A7672;
-    --border: #E6DCD9;
+    --background: #FCFBF8;
+    --foreground: #1D2321;
+    --primary: #153A2D;
+    --primary-foreground: #FFFFFF;
+    --secondary: #EFECE5;
+    --secondary-foreground: #1D2321;
+    --accent: #C7A163;
+    --accent-foreground: #1D2321;
+    --muted: #E6E3DB;
+    --muted-foreground: #767E79;
+    --border: #D8D4CC;
     --card: #FFFFFF;
-    --card-foreground: #2B171F;
+    --card-foreground: #1D2321;
   }
 
   /* Nervous Patient Mode Retained but elevated */
   .nervous-mode {
-    --background: #1A0E13;
-    --foreground: #F7F1EF;
-    --primary: #A35C74;
-    --primary-foreground: #1A0E13;
-    --secondary: #38232A;
-    --secondary-foreground: #F7F1EF;
-    --accent: #D89B83;
-    --accent-foreground: #1A0E13;
-    --muted: #2B1B22;
-    --muted-foreground: #A89895;
-    --border: #38232A;
-    --card: #26161C;
-    --card-foreground: #F7F1EF;
+    --background: #111614;
+    --foreground: #FCFBF8;
+    --primary: #265245;
+    --primary-foreground: #111614;
+    --secondary: #2A332E;
+    --secondary-foreground: #FCFBF8;
+    --accent: #D4B07B;
+    --accent-foreground: #111614;
+    --muted: #1E2622;
+    --muted-foreground: #9BA39E;
+    --border: #2A332E;
+    --card: #151B19;
+    --card-foreground: #FCFBF8;
   }
 
   html {
@@ -70,7 +70,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply font-sans selection:bg-[#5C3141] selection:text-[#FFFDFD];
+    @apply font-sans selection:bg-[#153A2D] selection:text-[#FFFFFF];
     transition: background-color 1.2s var(--ease-fluid), color 1.2s var(--ease-fluid);
     overflow-x: hidden;
     max-width: 100%;
@@ -92,19 +92,19 @@
   }
 
   .glass-panel {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.4) 100%);
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 40px 80px -20px rgba(43, 23, 31, 0.08), 
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 40px 80px -20px rgba(21, 58, 45, 0.08), 
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
   }
   
   .nervous-mode .glass-panel {
-    background: linear-gradient(135deg, rgba(43, 27, 34, 0.8) 0%, rgba(38, 22, 28, 0.4) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.5), 
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, rgba(26, 36, 32, 0.8) 0%, rgba(17, 22, 20, 0.4) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6), 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.02);
   }
 
   .organic-shape {
