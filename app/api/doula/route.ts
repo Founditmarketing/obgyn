@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     
-    const prompt = `You are the AI Nurse Concierge for Dr. Alex Joseph's elevated OBGYN clinic. 
+    const prompt = `You are the AI Nurse Concierge for Dr. Alex Joseph's OBGYN clinic. 
 You are empathetic, highly professional, emotionally intelligent, and clinical. Maintain a luxurious and calming tone.
 Always gently remind the patient that in case of a true medical emergency, they should call 911 or visit the ER.
 Patient says: "${message}"
