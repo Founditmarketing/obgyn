@@ -10,7 +10,7 @@ type JourneyType = 'expectant' | 'menopause' | 'teen' | 'general';
 
 const journeyContent = {
   general: {
-    title: "Elevated Women's Healthcare in Cenla",
+    title: "Women's Healthcare in Cenla",
     subtitle: "Experience a digital sanctuary where clinical precision meets deep empathy. Small-town heart, big-city tech.",
     image: "/images/hero_waiting_room.png",
     cta: "Begin Your Journey",
@@ -145,12 +145,12 @@ export function Hero() {
                 }}
                 className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-8 w-full sm:w-auto"
               >
-                <Link href="/schedule" prefetch={true} className="w-full sm:w-auto justify-center bg-foreground text-background px-10 py-5 lg:py-6 rounded-full text-[11px] lg:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#4A5D4E] transition-all duration-700 flex items-center gap-5 group shadow-[0_20px_40px_-10px_rgba(26,31,27,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(74,93,78,0.5)] transform hover:-translate-y-1">
+                <a href="tel:3184458120" className="w-full sm:w-auto justify-center bg-foreground text-background px-10 py-5 lg:py-6 rounded-full text-[11px] lg:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#4A5D4E] transition-all duration-700 flex items-center gap-5 group shadow-[0_20px_40px_-10px_rgba(26,31,27,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(74,93,78,0.5)] transform hover:-translate-y-1">
                   {journeyContent[activeJourney].cta}
                   <span className="w-8 h-[1px] bg-background/50 group-hover:w-12 group-hover:bg-background transition-all duration-500 relative">
                     <ArrowRight className="absolute right-[-10px] top-1/2 -translate-y-1/2 h-4 w-4" />
                   </span>
-                </Link>
+                </a>
               </motion.div>
             </motion.div>
           </AnimatePresence>

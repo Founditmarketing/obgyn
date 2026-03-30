@@ -36,7 +36,7 @@ export function Navbar() {
           </div>
           <div className="flex flex-col">
             <span className="font-serif text-xl md:text-2xl font-medium tracking-tight text-foreground transition-colors duration-500 group-hover:text-primary">Dr. Alex Joseph</span>
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mt-0.5 opacity-80">Elevated Women&apos;s Healthcare</span>
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mt-0.5 opacity-80">Women&apos;s Healthcare</span>
           </div>
         </Link>
 
@@ -58,12 +58,12 @@ export function Navbar() {
               {isNervousMode ? 'Calm Mode Active' : 'Nervous?'}
             </button>
             <LoginButton />
-            <Link 
-              href="/schedule" 
+            <a 
+              href="tel:3184458120" 
               className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors shadow-sm"
             >
-              Book Visit
-            </Link>
+              Call Office
+            </a>
           </div>
         </nav>
 
@@ -109,13 +109,13 @@ export function Navbar() {
                 <span className="text-xs uppercase tracking-wider">{isNervousMode ? 'ON' : 'OFF'}</span>
               </button>
               
-              <Link 
-                href="/schedule" 
+              <a 
+                href="tel:3184458120" 
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full bg-primary text-primary-foreground text-center px-5 py-3 rounded-xl font-medium mt-2"
               >
-                Book Your Visit
-              </Link>
+                Call Office
+              </a>
               
               <div className="mt-4 flex justify-center w-full">
                 <LoginButton />

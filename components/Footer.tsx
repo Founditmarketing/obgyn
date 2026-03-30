@@ -16,7 +16,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-xl font-medium tracking-tight">Dr. Alex Joseph</span>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">Elevated Women&apos;s Healthcare</span>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">Women&apos;s Healthcare</span>
               </div>
             </Link>
             <p className="text-sm text-background/70 mb-6 max-w-xs leading-relaxed">
@@ -37,7 +37,7 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-background/70">
               <li><Link href="#expertise" className="hover:text-primary transition-colors">Expertise</Link></li>
               <li><Link href="#concierge" className="hover:text-primary transition-colors">Local Resources</Link></li>
-              <li><Link href="/schedule" className="hover:text-primary transition-colors">Book a Visit</Link></li>
+              <li><a href="tel:3184458120" className="hover:text-primary transition-colors">Call Office</a></li>
             </ul>
           </div>
 
