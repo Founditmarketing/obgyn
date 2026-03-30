@@ -12,7 +12,7 @@ const journeyContent = {
   general: {
     title: "Elevated Women's Healthcare in Cenla",
     subtitle: "Experience a digital sanctuary where clinical precision meets deep empathy. Small-town heart, big-city tech.",
-    image: "/images/hero_general.png",
+    image: "/images/hero_waiting_room.png",
     cta: "Begin Your Journey",
     icon: <Heart className="h-6 w-6" />,
     label: "Overview"
@@ -36,7 +36,7 @@ const journeyContent = {
   teen: {
     title: "Your First Visit, Demystified",
     subtitle: "A judgment-free, comfortable environment designed to answer your questions and put you at ease.",
-    image: "/images/hero_teen.png",
+    image: "/images/hero_exterior.png",
     cta: "What to Expect",
     icon: <Sparkles className="h-6 w-6" />,
     label: "First Visit"
