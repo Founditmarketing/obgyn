@@ -1,6 +1,5 @@
 import { Hero } from '@/components/Hero';
 import { ProviderProfile } from '@/components/ProviderProfile';
-import { DigitalDoula } from '@/components/DigitalDoula';
 import { AlexandriaConcierge } from '@/components/AlexandriaConcierge';
 import { ClinicTour } from '@/components/ClinicTour';
 import { Testimonials } from '@/components/Testimonials';
@@ -14,7 +13,6 @@ export default function Home() {
       <ScrollReveal><ProviderProfile /></ScrollReveal>
       <ScrollReveal><ClinicTour /></ScrollReveal>
       <ScrollReveal><Testimonials /></ScrollReveal>
-      <ScrollReveal><DigitalDoula /></ScrollReveal>
       <ScrollReveal><AlexandriaConcierge /></ScrollReveal>
     </div>
   );

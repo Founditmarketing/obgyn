@@ -44,7 +44,6 @@ export function Navbar() {
         <nav className="hidden md:flex items-center gap-8">
           <Link href="#expertise" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">Expertise</Link>
           <Link href="#concierge" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">Local Resources</Link>
-          <Link href="#doula" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">Patient Tools</Link>
           
           <div className="flex items-center gap-4 ml-4 border-l border-border pl-4">
             <button
@@ -91,7 +90,6 @@ export function Navbar() {
             <div className="flex flex-col px-4 py-6 gap-4">
               <Link href="#expertise" className="text-lg font-medium text-foreground" onClick={() => setIsMobileMenuOpen(false)}>Expertise</Link>
               <Link href="#concierge" className="text-lg font-medium text-foreground" onClick={() => setIsMobileMenuOpen(false)}>Local Resources</Link>
-              <Link href="#doula" className="text-lg font-medium text-foreground" onClick={() => setIsMobileMenuOpen(false)}>Patient Tools</Link>
               
               <div className="h-px bg-border my-2" />
               

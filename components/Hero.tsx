@@ -51,15 +51,14 @@ export function Hero() {
   const [activeJourney, setActiveJourney] = useState<JourneyType>('general');
 
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-background pt-24 pb-8 lg:pt-0 lg:pb-0">
+    <section className="relative min-h-[85vh] lg:min-h-screen flex items-center overflow-hidden bg-background">
       
-      {/* Structural layout: Symmetric split pane */}
-      <div className="container mx-auto px-5 sm:px-8 lg:px-16 xl:px-24 w-full min-h-[90vh] lg:min-h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-24 relative z-10 items-center justify-items-center py-4 lg:py-0">
+      {/* Structural layout: Symmetric split pane desktop, Stacked sandwich mobile */}
+      <div className="container mx-auto px-5 sm:px-8 lg:px-16 xl:px-24 w-full grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_minmax(0,1fr)] gap-y-6 lg:gap-x-20 xl:gap-x-24 relative z-10 items-center pt-16 lg:pt-0 pb-12 lg:pb-0">
         
-        {/* Left pane: Elegant Typography */}
-        <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left order-2 lg:order-1 relative z-20 w-full max-w-xl lg:max-w-none">
-          
-          <div className="absolute -left-24 -top-24 w-64 h-64 bg-[#B89C86]/10 rounded-full blur-[80px] pointer-events-none transition-all duration-1000"></div>
+        {/* 1. Heading (Mobile: order-1, Desktop: col 1, row 1) */}
+        <div className="order-1 lg:col-start-1 lg:row-start-1 flex flex-col justify-end items-center lg:items-start text-center lg:text-left relative z-20 w-full lg:self-end">
+          <div className="absolute -left-24 -top-24 w-64 h-64 bg-[#B89C86]/10 rounded-full blur-[80px] pointer-events-none transition-all duration-1000 hidden lg:block"></div>
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -75,10 +74,9 @@ export function Hero() {
                 },
                 exit: { 
                   opacity: 0,
-                  transition: { duration: 0.3, staggerChildren: 0.05, staggerDirection: -1 }
+                  transition: { duration: 0.3 }
                 }
               }}
-              className="space-y-10 relative"
             >
               <motion.h1 
                 variants={{
@@ -86,7 +84,7 @@ export function Hero() {
                   visible: { opacity: 1, filter: 'blur(0px)', y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0, filter: 'blur(5px)', y: -10, transition: { duration: 0.4 } }
                 }}
-                className="font-serif text-[12vw] sm:text-[10vw] lg:text-[4.5rem] xl:text-[5.5rem] leading-[1] tracking-tighter text-foreground text-balance"
+                className="font-serif text-[14vw] sm:text-[11vw] lg:text-[4.5rem] xl:text-[5.5rem] leading-[1.05] tracking-tighter text-foreground text-balance max-w-2xl"
               >
                 {journeyContent[activeJourney].title.split(' ').map((word, i) => (
                   <span key={i} className={`inline-block mr-[0.2em] ${i % 2 !== 0 ? 'italic font-light text-[#4A5D4E]' : 'font-medium'}`}>
@@ -94,14 +92,38 @@ export function Hero() {
                   </span>
                 )).reduce((prev, curr) => [prev, ' ', curr] as any)}
               </motion.h1>
-              
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* 3. Subtitle & CTA (Mobile: order-3, Desktop: col 1, row 2) */}
+        <div className="order-3 lg:col-start-1 lg:row-start-2 flex flex-col justify-start items-center lg:items-start text-center lg:text-left relative z-20 w-full lg:self-start lg:pt-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeJourney}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.15, delayChildren: 0.4 }
+                },
+                exit: { 
+                  opacity: 0,
+                  transition: { duration: 0.3 }
+                }
+              }}
+              className="flex flex-col items-center lg:items-start w-full space-y-6 lg:space-y-8"
+            >
               <motion.div 
                 variants={{
                   hidden: { opacity: 0, scaleX: 0, transformOrigin: 'left' },
                   visible: { opacity: 1, scaleX: 1, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0, transition: { duration: 0.3 } }
                 }}
-                className="h-[1px] w-24 lg:w-32 bg-gradient-to-r from-transparent via-[#DEDCD5] to-transparent lg:from-[#DEDCD5] lg:to-transparent my-2"
+                className="h-[1px] w-24 lg:w-32 bg-gradient-to-r from-transparent via-[#DEDCD5] to-transparent lg:from-[#DEDCD5] lg:to-transparent hidden lg:block"
               ></motion.div>
 
               <motion.p 
@@ -110,7 +132,7 @@ export function Hero() {
                   visible: { opacity: 1, filter: 'blur(0px)', y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0, filter: 'blur(5px)', y: -10, transition: { duration: 0.4 } }
                 }}
-                className="text-xl lg:text-3xl font-light text-foreground/80 max-w-xl leading-relaxed text-balance"
+                className="text-[1.1rem] sm:text-xl lg:text-3xl font-light text-foreground/80 max-w-lg lg:max-w-xl leading-relaxed text-balance px-4 lg:px-0"
               >
                 {journeyContent[activeJourney].subtitle}
               </motion.p>
@@ -121,9 +143,9 @@ export function Hero() {
                   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0, y: -10, transition: { duration: 0.4 } }
                 }}
-                className="pt-6 flex flex-col sm:flex-row items-center lg:items-start gap-4 lg:gap-8 w-full sm:w-auto"
+                className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-8 w-full sm:w-auto"
               >
-                <Link href="/schedule" prefetch={true} className="w-full sm:w-auto justify-center bg-foreground text-background px-10 py-6 rounded-full text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#4A5D4E] transition-all duration-700 flex items-center gap-5 group shadow-[0_20px_40px_-10px_rgba(26,31,27,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(74,93,78,0.5)] transform hover:-translate-y-1">
+                <Link href="/schedule" prefetch={true} className="w-full sm:w-auto justify-center bg-foreground text-background px-10 py-5 lg:py-6 rounded-full text-[11px] lg:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#4A5D4E] transition-all duration-700 flex items-center gap-5 group shadow-[0_20px_40px_-10px_rgba(26,31,27,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(74,93,78,0.5)] transform hover:-translate-y-1">
                   {journeyContent[activeJourney].cta}
                   <span className="w-8 h-[1px] bg-background/50 group-hover:w-12 group-hover:bg-background transition-all duration-500 relative">
                     <ArrowRight className="absolute right-[-10px] top-1/2 -translate-y-1/2 h-4 w-4" />
@@ -134,8 +156,8 @@ export function Hero() {
           </AnimatePresence>
         </div>
 
-        {/* Right pane: Immersive Image Portal */}
-        <div className="w-full max-w-[22rem] sm:max-w-md lg:max-w-none aspect-[4/5] relative order-1 lg:order-2 self-center mx-auto mt-6 lg:mt-0">
+        {/* 2. Right pane: Immersive Image Portal (Mobile: order-2, Desktop: col 2, row span 2) */}
+        <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 w-full max-w-[21rem] sm:max-w-md lg:max-w-none aspect-[4/5] relative self-center mx-auto my-2 lg:my-0">
           <div className="absolute inset-0 rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl shadow-[#1A1F1B]/20 border border-[#E8E5DC]/50">
             <AnimatePresence>
                <motion.div

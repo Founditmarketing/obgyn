@@ -37,7 +37,6 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-background/70">
               <li><Link href="#expertise" className="hover:text-primary transition-colors">Expertise</Link></li>
               <li><Link href="#concierge" className="hover:text-primary transition-colors">Local Resources</Link></li>
-              <li><Link href="#doula" className="hover:text-primary transition-colors">Digital Tools</Link></li>
               <li><Link href="/schedule" className="hover:text-primary transition-colors">Book a Visit</Link></li>
             </ul>
           </div>

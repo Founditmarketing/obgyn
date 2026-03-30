@@ -82,16 +82,6 @@ export function ProviderProfile() {
                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
                  <div className="flex gap-5 group">
                    <div className="mt-1">
-                     <Award className="h-6 w-6 text-[#B89C86] group-hover:-translate-y-1 transition-transform duration-500" />
-                   </div>
-                   <div>
-                     <h4 className="font-medium text-lg mb-2 text-[#F4F2EC] font-serif">Board Certified</h4>
-                     <p className="text-sm text-[#F4F2EC]/60 leading-relaxed font-light">American Board of Obstetrics & Gynecology</p>
-                   </div>
-                 </div>
-                 
-                 <div className="flex gap-5 group">
-                   <div className="mt-1">
                      <ShieldCheck className="h-6 w-6 text-[#B89C86] group-hover:-translate-y-1 transition-transform duration-500" />
                    </div>
                    <div>
