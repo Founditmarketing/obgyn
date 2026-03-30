@@ -29,28 +29,16 @@ export function ProviderProfile() {
             >
                <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] border border-[#F4F2EC]/10 group">
                  <Image 
-                   src="/images/provider_thumbnail_lux.png"
+                   src="/images/dr_joseph.jpg"
                    alt="Dr. Alex Joseph in her clinic"
                    fill
                    className="object-cover transition-transform duration-[2s] group-hover:scale-105"
                    priority
                  />
                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F1B]/90 via-[#1A1F1B]/20 to-transparent mix-blend-multiply" />
-                 
-                 {/* Play Button Overlay */}
-                 <div className="absolute inset-0 flex items-center justify-center">
-                   <button 
-                     suppressHydrationWarning 
-                     aria-label="Play clinic introduction video"
-                     className="w-24 h-24 bg-[#F4F2EC]/10 backdrop-blur-xl border border-[#F4F2EC]/20 rounded-full flex items-center justify-center hover:bg-[#F4F2EC]/20 transition-all duration-500 group/btn shadow-xl hover:shadow-2xl hover:scale-105 transform"
-                   >
-                     <Play className="h-8 w-8 text-[#F4F2EC] ml-2 group-hover/btn:scale-110 transition-transform duration-500" />
-                   </button>
-                 </div>
   
                  {/* Caption */}
                  <div className="absolute bottom-10 left-10 right-10">
-                   <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-[#D9D2C5] mb-3 block">Video Introduction</span>
                    <h3 className="font-serif text-4xl mb-2 text-[#F4F2EC] tracking-tight">Meet Dr. Joseph</h3>
                  </div>
                </div>

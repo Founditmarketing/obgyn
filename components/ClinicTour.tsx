@@ -9,19 +9,19 @@ import { Play, ArrowRight } from 'lucide-react';
 const tourItems = [
   {
     id: 1,
-    title: "The Sanctuary Waiting Room",
+    title: "Clinic Exterior",
     category: "Environment",
-    duration: "0:45",
-    image: "/images/tour_waiting_room.png",
-    description: "Designed to lower cortisol. Natural light, living walls, and herbal tea on arrival."
+    duration: "0:30",
+    image: "/images/office_outside.jpg",
+    description: "Welcome to our state-of-the-art facility designed for your absolute peace of mind."
   },
   {
     id: 2,
-    title: "Meet Nurse Sarah",
-    category: "Care Team",
-    duration: "1:20",
-    image: "/images/tour_nurse.png",
-    description: "Your dedicated patient advocate talks about our personalized care approach."
+    title: "The Sanctuary Waiting Room",
+    category: "Environment",
+    duration: "0:45",
+    image: "/images/office_inside.jpg",
+    description: "Designed to lower cortisol. Natural light, living walls, and herbal tea on arrival."
   },
   {
     id: 3,
