@@ -77,19 +77,18 @@ export function ClinicTour() {
         </div>
       </div>
 
-      {/* Horizontal Scroll Container (Mobile) / Grid (Desktop) */}
+      {/* Grid Container for all views */}
       <div 
         ref={scrollRef}
-        className="flex lg:grid lg:grid-cols-2 lg:place-items-center xl:grid-cols-3 gap-8 lg:gap-12 overflow-x-auto lg:overflow-visible pb-16 px-6 lg:px-12 snap-x snap-mandatory lg:snap-none hide-scrollbar max-w-[100rem] mx-auto w-full"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10 lg:gap-12 place-items-center pb-16 px-6 lg:px-12 max-w-[100rem] mx-auto w-full"
       >
         {tourItems.map((item) => (
           <motion.div 
             key={item.id}
-            whileHover={{ y: -15 }}
+            whileHover={{ y: -10 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             onClick={() => setSelectedVideo(item.id)}
-            className="shrink-0 w-[85vw] md:w-[500px] lg:w-full snap-center group cursor-pointer max-w-[500px]"
+            className="w-full max-w-[500px] group cursor-pointer"
           >
             <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden mb-6 bg-[#E8E5DC] shadow-[0_20px_40px_-15px_rgba(26,31,27,0.1)] group-hover:shadow-[0_40px_60px_-15px_rgba(26,31,27,0.2)] transition-shadow duration-700">
               <Image 
@@ -102,7 +101,7 @@ export function ClinicTour() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F1B]/80 via-[#1A1F1B]/10 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-700 mix-blend-multiply" />
               
               {/* Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-95 group-hover:scale-100">
+              <div className="absolute inset-0 flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:scale-95 lg:group-hover:scale-100">
                 <div className="w-20 h-20 bg-[#F4F2EC]/20 backdrop-blur-xl rounded-full flex items-center justify-center border border-[#F4F2EC]/30 text-[#F4F2EC] shadow-2xl">
                   <Play className="h-8 w-8 ml-2" />
                 </div>
