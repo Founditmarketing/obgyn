@@ -71,11 +71,6 @@ export function Testimonials() {
           ))}
         </div>
         
-        <div className="mt-20 text-center flex justify-center">
-          <a href="https://www.google.com/search?q=Dr.+Alex+Joseph+OBGYN+Alexandria+LA#lrd=0x862fed8cfbe317df:0xd53202ae812ffcb1,1,,," target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 text-[#F4F2EC] hover:text-[#B89C86] transition-colors font-medium group text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0 border-b border-[#F4F2EC]/20 pb-2 hover:border-[#B89C86]">
-            Read more reviews on Google
-          </a>
-        </div>
       </div>
     </section>
   );

@@ -1,10 +1,10 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Play, ArrowRight } from 'lucide-react';
+import { Play, ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const tourItems = [
   {
@@ -51,6 +51,9 @@ const tourItems = [
 
 export function ClinicTour() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+
+  const handleClose = () => setSelectedVideo(null);
 
   return (
     <section id="tour" className="py-24 lg:py-32 bg-[#F4F2EC] text-[#1A1F1B] overflow-hidden relative z-10 rounded-b-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
@@ -65,27 +68,28 @@ export function ClinicTour() {
               Take a cinematic tour of our facilities and meet the team before you step through the doors. No surprises, just absolute peace of mind.
             </p>
           </div>
-          <Link href="#tour" prefetch={true} className="inline-flex items-center gap-4 text-[#1A1F1B] hover:text-[#4A5D4E] transition-colors font-medium group text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0 mb-3 border-b border-[#1A1F1B]/20 pb-2 hover:border-[#4A5D4E]">
+          <button 
+            onClick={() => setSelectedVideo(tourItems[0].id)}
+            className="inline-flex items-center gap-4 text-[#1A1F1B] hover:text-[#4A5D4E] transition-colors font-medium group text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0 mb-3 border-b border-[#1A1F1B]/20 pb-2 hover:border-[#4A5D4E]"
+          >
             View All Episodes <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform duration-500" />
-          </Link>
+          </button>
         </div>
       </div>
 
-      {/* Horizontal Scroll Container */}
+      {/* Horizontal Scroll Container (Mobile) / Grid (Desktop) */}
       <div 
         ref={scrollRef}
-        className="flex gap-8 lg:gap-12 overflow-x-auto pb-16 px-6 lg:px-12 snap-x snap-mandatory hide-scrollbar"
+        className="flex lg:grid lg:grid-cols-2 lg:place-items-center xl:grid-cols-3 gap-8 lg:gap-12 overflow-x-auto lg:overflow-visible pb-16 px-6 lg:px-12 snap-x snap-mandatory lg:snap-none hide-scrollbar max-w-[100rem] mx-auto w-full"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        {/* Spacer for initial padding */}
-        <div className="w-[calc((100vw-90rem)/2)] shrink-0 hidden 2xl:block" />
-        
         {tourItems.map((item) => (
           <motion.div 
             key={item.id}
             whileHover={{ y: -15 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="shrink-0 w-[85vw] md:w-[500px] lg:w-[600px] snap-center group cursor-pointer"
+            onClick={() => setSelectedVideo(item.id)}
+            className="shrink-0 w-[85vw] md:w-[500px] lg:w-full snap-center group cursor-pointer max-w-[500px]"
           >
             <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden mb-6 bg-[#E8E5DC] shadow-[0_20px_40px_-15px_rgba(26,31,27,0.1)] group-hover:shadow-[0_40px_60px_-15px_rgba(26,31,27,0.2)] transition-shadow duration-700">
               <Image 
@@ -121,11 +125,102 @@ export function ClinicTour() {
             <p className="text-lg text-[#1A1F1B]/60 font-light leading-relaxed max-w-lg">{item.description}</p>
           </motion.div>
         ))}
-        
-        {/* Spacer for end padding */}
-        <div className="w-[calc((100vw-90rem)/2)] shrink-0 hidden 2xl:block" />
-        <div className="w-6 shrink-0 lg:hidden" />
       </div>
+
+      {/* Video Lightbox Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#181A18]/95 backdrop-blur-md p-4 md:p-10 cursor-pointer"
+            onClick={handleClose}
+          >
+            <div className="absolute top-6 right-6 lg:top-10 lg:right-10 z-10">
+              <button 
+                onClick={handleClose}
+                className="text-[#F4F2EC] hover:text-[#B89C86] transition-colors p-3 bg-[#F4F2EC]/10 hover:bg-[#F4F2EC]/20 rounded-full"
+                aria-label="Close video"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <motion.div 
+              initial={{ scale: 0.9, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="relative w-full max-w-6xl aspect-[16/9] rounded-2xl overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.8)] cursor-default bg-black border border-[#F4F2EC]/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {(() => {
+                const activeIndex = tourItems.findIndex(i => i.id === selectedVideo);
+                const activeItem = tourItems[activeIndex];
+                if (!activeItem) return null;
+                
+                const handlePrev = (e: React.MouseEvent) => {
+                  e.stopPropagation();
+                  const prevIndex = activeIndex === 0 ? tourItems.length - 1 : activeIndex - 1;
+                  setSelectedVideo(tourItems[prevIndex].id);
+                };
+                
+                const handleNext = (e: React.MouseEvent) => {
+                  e.stopPropagation();
+                  const nextIndex = activeIndex === tourItems.length - 1 ? 0 : activeIndex + 1;
+                  setSelectedVideo(tourItems[nextIndex].id);
+                };
+                
+                return (
+                  <>
+                    <Image 
+                      src={activeItem.image}
+                      alt={activeItem.title}
+                      fill
+                      className="object-contain md:object-cover opacity-80"
+                    />
+                    
+                    {/* Navigation Arrows */}
+                    <div className="absolute inset-y-0 left-0 flex items-center px-4 md:px-8 z-20">
+                      <button onClick={handlePrev} className="p-2 md:p-3 bg-black/40 hover:bg-black/60 border border-white/10 rounded-full text-white backdrop-blur-md transition-all transform hover:scale-110 shadow-xl" aria-label="Previous video">
+                         <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
+                      </button>
+                    </div>
+                    <div className="absolute inset-y-0 right-0 flex items-center px-4 md:px-8 z-20">
+                      <button onClick={handleNext} className="p-2 md:p-3 bg-black/40 hover:bg-black/60 border border-white/10 rounded-full text-white backdrop-blur-md transition-all transform hover:scale-110 shadow-xl" aria-label="Next video">
+                         <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
+                      </button>
+                    </div>
+                    
+                    {/* Simulated video player overlay */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none">
+                      <div className="flex flex-col gap-4 pointer-events-auto">
+                        <h3 className="text-2xl md:text-4xl font-serif text-[#F4F2EC]">{activeItem.title}</h3>
+                        
+                        <div className="flex items-center gap-4 md:gap-6 text-[#F4F2EC]">
+                          <button className="p-3 md:p-4 bg-[#F4F2EC]/20 hover:bg-[#F4F2EC]/30 backdrop-blur-md rounded-full transition-all group" aria-label="Play">
+                            <Play className="h-6 w-6 md:h-8 md:w-8 fill-[#F4F2EC] group-hover:scale-110 transition-transform" />
+                          </button>
+                          
+                          <div className="h-1.5 md:h-2 bg-[#F4F2EC]/30 flex-grow rounded-full overflow-hidden cursor-pointer relative">
+                            {/* Fake progress bar */}
+                            <div className="absolute top-0 left-0 h-full w-[35%] bg-[#B89C86] rounded-full"></div>
+                          </div>
+                          
+                          <span className="text-xs md:text-sm font-medium tabular-nums tracking-wider opacity-80 shrink-0">
+                            0:12 / {activeItem.duration}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })()}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

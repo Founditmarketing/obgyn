@@ -80,7 +80,7 @@ export function ProviderProfile() {
                </div>
                
                <div className="pt-8">
-                 <Link href="#" className="inline-flex bg-transparent border border-[#F4F2EC]/30 text-[#F4F2EC] px-10 py-6 rounded-full text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#F4F2EC] hover:text-[#1A1F1B] hover:shadow-[0_20px_40px_-10px_rgba(244,242,236,0.3)] transition-all duration-700 items-center gap-5 group w-fit transform hover:-translate-y-1">
+                 <Link href="/dr-alex-joseph" className="inline-flex bg-transparent border border-[#F4F2EC]/30 text-[#F4F2EC] px-10 py-6 rounded-full text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#F4F2EC] hover:text-[#1A1F1B] hover:shadow-[0_20px_40px_-10px_rgba(244,242,236,0.3)] transition-all duration-700 items-center gap-5 group w-fit transform hover:-translate-y-1">
                    Read Full Biography
                    <span className="w-8 h-[1px] bg-[#F4F2EC] group-hover:w-12 group-hover:bg-[#1A1F1B] transition-all duration-500 relative">
                       <ArrowRight className="absolute right-[-10px] top-1/2 -translate-y-1/2 h-4 w-4" />

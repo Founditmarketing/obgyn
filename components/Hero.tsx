@@ -143,7 +143,7 @@ export function Hero() {
                   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0, y: -10, transition: { duration: 0.4 } }
                 }}
-                className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-8 w-full sm:w-auto"
+                className="pt-2 pb-12 lg:pb-16 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-8 w-full sm:w-auto"
               >
                 <a href="tel:3184458120" className="w-full sm:w-auto justify-center bg-foreground text-background px-10 py-5 lg:py-6 rounded-full text-[11px] lg:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#4A5D4E] transition-all duration-700 flex items-center gap-5 group shadow-[0_20px_40px_-10px_rgba(26,31,27,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(74,93,78,0.5)] transform hover:-translate-y-1">
                   {journeyContent[activeJourney].cta}

@@ -1,8 +1,17 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { HeartPulse, Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === '/contact') {
+    return null;
+  }
+
   return (
     <footer className="bg-foreground text-background py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
@@ -23,48 +32,52 @@ export function Footer() {
               A digital sanctuary for women&apos;s healthcare in Alexandria, LA. Featuring biophilic design, hyper-personalized patient journeys, and luxury hospitality.
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary hover:bg-primary hover:text-[#181A18] transition-all duration-300">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Like us on Facebook" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary hover:bg-primary hover:text-[#181A18] transition-all duration-300">
+              
+              <a href="https://www.facebook.com/DrJosephOBGYN/" target="_blank" rel="noopener noreferrer" aria-label="Like us on Facebook" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#F4F2EB] hover:bg-[#F4F2EB] hover:text-[#181A18] transition-all duration-300">
                 <Facebook className="h-4 w-4" />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="font-serif text-lg mb-6 text-primary">Explore</h4>
+            <h4 className="font-serif text-lg mb-6 text-[#F4F2EB]">Explore</h4>
             <ul className="space-y-4 text-sm text-background/70">
-              <li><Link href="#expertise" className="hover:text-primary transition-colors">Expertise</Link></li>
-              <li><Link href="#concierge" className="hover:text-primary transition-colors">Local Resources</Link></li>
-              <li><a href="tel:3184458120" className="hover:text-primary transition-colors">Call Office</a></li>
+              <li><Link href="/dr-alex-joseph" className="hover:text-[#F4F2EB] transition-colors">Meet Dr. Joseph</Link></li>
+              <li><Link href="/local-resources" className="hover:text-[#F4F2EB] transition-colors">Local Resources</Link></li>
+              <li><a href="tel:3184458120" className="hover:text-[#F4F2EB] transition-colors">Call Office</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-serif text-lg mb-6 text-primary">Contact</h4>
+            <h4 className="font-serif text-lg mb-6 text-[#F4F2EB]">Contact</h4>
             <ul className="space-y-4 text-sm text-background/70">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary shrink-0" />
-                <span>One Jackson Square<br />Alexandria, LA 71301</span>
+              <li>
+                <a href="https://maps.google.com/?q=One+Jackson+Square+Alexandria,+LA+71301" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:text-[#F4F2EB] transition-colors group">
+                  <MapPin className="h-5 w-5 text-[#F4F2EB] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>One Jackson Square<br />Alexandria, LA 71301</span>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary shrink-0" />
-                <span>(318) 445-8120</span>
+              <li>
+                <a href="tel:3184458120" className="flex items-center gap-3 hover:text-[#F4F2EB] transition-colors group">
+                  <Phone className="h-5 w-5 text-[#F4F2EB] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>(318) 445-8120</span>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary shrink-0" />
-                <span>concierge@alexjosephmd.com</span>
+              <li>
+                <a href="mailto:concierge@alexjosephmd.com" className="flex items-center gap-3 hover:text-[#F4F2EB] transition-colors group">
+                  <Mail className="h-5 w-5 text-[#F4F2EB] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>concierge@alexjosephmd.com</span>
+                </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-serif text-lg mb-6 text-primary">Legal</h4>
+            <h4 className="font-serif text-lg mb-6 text-[#F4F2EB]">Legal</h4>
             <ul className="space-y-4 text-sm text-background/70">
-              <li><Link href="/" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-              <li><Link href="/" className="hover:text-primary transition-colors">HIPAA Notice</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-[#F4F2EB] transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-[#F4F2EB] transition-colors">Terms of Service</Link></li>
+              <li><Link href="/hipaa-notice" className="hover:text-[#F4F2EB] transition-colors">HIPAA Notice</Link></li>
             </ul>
           </div>
 

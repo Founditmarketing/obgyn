@@ -1,0 +1,67 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Diagnostic & 3D/4D Obstetric Ultrasounds | Dr. Alex Joseph OBGYN',
+  description: 'Diagnostic and elective 3D/4D obstetric ultrasounds for prenatal care and bonding.',
+};
+
+export default function UltrasoundPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalTest",
+    "name": "3D/4D Obstetric Ultrasounds",
+    "provider": {
+      "@type": "Physician",
+      "name": "Dr. Alex Joseph OBGYN",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Alexandria",
+        "addressRegion": "LA"
+      }
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Alexandria"
+    },
+    "description": "Diagnostic and elective 3D/4D obstetric ultrasounds for prenatal care and bonding."
+  };
+
+  return (
+    <div className="flex flex-col w-full bg-[#F4F2EC] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
+      <section className="pt-32 pb-16 px-6 lg:px-12 max-w-5xl mx-auto text-center">
+        <span className="text-xs uppercase tracking-[0.3em] font-medium text-[#8A928B] mb-6 block">Imaging Services</span>
+        <h1 className="font-serif text-5xl md:text-7xl font-medium text-[#1A1F1B] mb-8 leading-[1.05] tracking-tighter text-balance">
+          Diagnostic & 3D/4D <br className="hidden md:block"/><span className="italic font-light text-[#4A5D4E]">Obstetric Ultrasounds</span>
+        </h1>
+      </section>
+
+      <section className="py-4 px-6 lg:px-12 max-w-3xl mx-auto">
+        <div className="space-y-6 text-xl text-[#1A1F1B]/80 font-light leading-relaxed text-balance">
+          <p>
+            Seeing your baby for the first time is one of the most profound moments of pregnancy. We offer detailed diagnostic ultrasounds to monitor fetal development, alongside elective 3D/4D ultrasounds that provide incredibly clear, keepsake images.
+          </p>
+          <p>
+            Our state-of-the-art imaging technology ensures both clinical precision for your baby's health and a beautiful bonding experience for your family.
+          </p>
+        </div>
+        
+        <div className="mt-20 text-center border-t border-[#1A1F1B]/10 pt-16 mb-20">
+          <h3 className="font-serif text-3xl mb-8 text-[#1A1F1B]">Book your imaging session.</h3>
+          <Link href="/schedule" className="inline-flex bg-[#1A1F1B] text-[#F4F2EC] px-10 py-5 rounded-full text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#4A5D4E] transition-all duration-700 items-center justify-center gap-5 group transform hover:-translate-y-1 shadow-lg">
+            Schedule an Ultrasound
+            <span className="w-8 h-[1px] bg-background/50 group-hover:w-12 group-hover:bg-background transition-all duration-500 relative">
+              <ArrowRight className="absolute right-[-10px] top-1/2 -translate-y-1/2 h-4 w-4" />
+            </span>
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -53,7 +53,7 @@ export function AlexandriaConcierge() {
             <div className="pt-8 w-full h-[1px] bg-gradient-to-r from-[#F4F2EC]/20 to-transparent"></div>
 
             <div className="pt-4">
-              <Link href="/portal" prefetch={true} className="inline-block bg-[#F4F2EC] text-[#1A1F1B] px-10 py-6 rounded-full text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#B89C86] hover:text-[#F4F2EC] transition-all duration-700 shadow-xl hover:-translate-y-1 transform">
+              <Link href="/local-resources" prefetch={true} className="inline-block bg-[#F4F2EC] text-[#1A1F1B] px-10 py-6 rounded-full text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#B89C86] hover:text-[#F4F2EC] transition-all duration-700 shadow-xl hover:-translate-y-1 transform">
                 Explore the Full Guide
               </Link>
             </div>
