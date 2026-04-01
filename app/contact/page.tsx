@@ -94,29 +94,31 @@ export default function ContactPage() {
           <h2 className="font-serif text-3xl md:text-4xl text-[#F4F2EC] mb-4">Send a Message</h2>
           <p className="text-[#F4F2EC]/60 font-light mb-10">We prioritize prompt replies. For medical emergencies, please call 911 or visit the nearest ER.</p>
           
-          <form className="space-y-6 relative z-10" autoComplete="off">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-[#F4F2EC]/50 font-medium ml-4">First Name</label>
-                <input type="text" className="w-full bg-[#1A1F1B] border border-[#F4F2EC]/10 rounded-full px-6 py-4 text-[#F4F2EC] focus:outline-none focus:border-[#B89C86] transition-colors" placeholder="Jane" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-[#F4F2EC]/50 font-medium ml-4">Last Name</label>
-                <input type="text" className="w-full bg-[#1A1F1B] border border-[#F4F2EC]/10 rounded-full px-6 py-4 text-[#F4F2EC] focus:outline-none focus:border-[#B89C86] transition-colors" placeholder="Doe" />
-              </div>
+          <form action="https://formsubmit.co/concierge@alexjosephmd.com" method="POST" className="space-y-6 relative z-10" autoComplete="off">
+            <input type="hidden" name="_subject" value="New Contact Inquiry from OBGYN Website!" />
+            <input type="hidden" name="_captcha" value="false" />
+            
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest text-[#F4F2EC]/50 font-medium ml-4">Name</label>
+              <input type="text" name="Name" required className="w-full bg-[#1A1F1B] border border-[#F4F2EC]/10 rounded-full px-6 py-4 text-[#F4F2EC] focus:outline-none focus:border-[#B89C86] transition-colors" placeholder="Jane Doe" />
             </div>
             
             <div className="space-y-2">
-               <label className="text-[10px] uppercase tracking-widest text-[#F4F2EC]/50 font-medium ml-4">Email Address</label>
-               <input type="email" className="w-full bg-[#1A1F1B] border border-[#F4F2EC]/10 rounded-full px-6 py-4 text-[#F4F2EC] focus:outline-none focus:border-[#B89C86] transition-colors" placeholder="jane@example.com" />
+               <label className="text-[10px] uppercase tracking-widest text-[#F4F2EC]/50 font-medium ml-4">Email</label>
+               <input type="email" name="Email" required className="w-full bg-[#1A1F1B] border border-[#F4F2EC]/10 rounded-full px-6 py-4 text-[#F4F2EC] focus:outline-none focus:border-[#B89C86] transition-colors" placeholder="jane@example.com" />
+            </div>
+
+            <div className="space-y-2">
+               <label className="text-[10px] uppercase tracking-widest text-[#F4F2EC]/50 font-medium ml-4">Address</label>
+               <input type="text" name="Address" required className="w-full bg-[#1A1F1B] border border-[#F4F2EC]/10 rounded-full px-6 py-4 text-[#F4F2EC] focus:outline-none focus:border-[#B89C86] transition-colors" placeholder="123 Example Street, City, State ZIP" />
             </div>
 
             <div className="space-y-2">
                <label className="text-[10px] uppercase tracking-widest text-[#F4F2EC]/50 font-medium ml-4">Message</label>
-               <textarea rows={4} className="w-full bg-[#1A1F1B] border border-[#F4F2EC]/10 rounded-[2rem] px-6 py-4 text-[#F4F2EC] focus:outline-none focus:border-[#B89C86] transition-colors resize-none" placeholder="How can we help you today?" />
+               <textarea name="Message" required rows={4} className="w-full bg-[#1A1F1B] border border-[#F4F2EC]/10 rounded-[2rem] px-6 py-4 text-[#F4F2EC] focus:outline-none focus:border-[#B89C86] transition-colors resize-none" placeholder="How can we help you today?" />
             </div>
 
-            <button type="button" className="w-full bg-[#F4F2EC] text-[#1A1F1B] py-5 rounded-full text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#B89C86] hover:text-[#F4F2EC] transition-all duration-700 shadow-xl flex items-center justify-center gap-4 group mt-4">
+            <button type="submit" className="w-full bg-[#F4F2EC] text-[#1A1F1B] py-5 rounded-full text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#B89C86] hover:text-[#F4F2EC] transition-all duration-700 shadow-xl flex items-center justify-center gap-4 group mt-4">
               Submit Inquiry
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
