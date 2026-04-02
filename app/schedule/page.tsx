@@ -18,9 +18,26 @@ export default function SchedulePage() {
   };
 
   const handleFormSubmit = async (data: any) => {
-    // In a real app, send data to Firestore or scheduling API
-    console.log("Booking Confirmed:", { date: selectedDate, time: selectedTime, patientData: data });
-    setStep(3);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'schedule',
+          date: selectedDate?.toISOString() || '',
+          time: selectedTime || '',
+          ...data,
+        }),
+      });
+      
+      if (!response.ok) throw new Error("Failed to submit schedule request");
+      setStep(3);
+    } catch (error) {
+      console.error("Booking error:", error);
+      alert("Failed to confirm booking. Please try again or contact us directly.");
+    }
   };
 
   return (
