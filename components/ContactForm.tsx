@@ -16,12 +16,17 @@ export function ContactForm() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://www.founditos.com/api/contact-form/a87770ba-1d0c-4fa2-b47e-6b6b843ac3aa', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: data.Name as string,
+          email: data.Email as string,
+          phone: '',
+          message: `Address: ${data.Address || ''}\n\n${data.Message || ''}`,
+        }),
       });
 
       if (!response.ok) throw new Error("Failed to submit");

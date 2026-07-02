@@ -19,16 +19,16 @@ export default function SchedulePage() {
 
   const handleFormSubmit = async (data: any) => {
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://www.founditos.com/api/contact-form/a87770ba-1d0c-4fa2-b47e-6b6b843ac3aa', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          type: 'schedule',
-          date: selectedDate?.toISOString() || '',
-          time: selectedTime || '',
-          ...data,
+          name: data.Name || '',
+          email: data.Email || '',
+          phone: '',
+          message: `Appointment Request\nDate: ${selectedDate?.toISOString() || 'Not selected'}\nTime: ${selectedTime || 'Not selected'}\nAddress: ${data.Address || ''}\n\n${data.Message || ''}`,
         }),
       });
       
