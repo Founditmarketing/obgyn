@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+import { DEFAULT_OG_IMAGE, breadcrumbSchema } from '@/lib/seo';
 
 const TITLE = 'Complete Pregnancy Care & Delivery in Alexandria | Dr. Alex Joseph OBGYN';
 const DESCRIPTION = 'Comprehensive pregnancy care from first trimester to delivery, acting as your personal 24/7 advocate.';
@@ -35,6 +35,10 @@ export default function PregnancyCarePage() {
     },
     "description": "Comprehensive pregnancy care from first trimester to delivery, acting as your personal 24/7 advocate."
   };
+  const breadcrumbLd = breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Pregnancy Care & Delivery', path: PATH },
+  ]);
 
   return (
     <div className="flex flex-col w-full bg-[#F4F2EC] min-h-screen">
@@ -42,7 +46,11 @@ export default function PregnancyCarePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+
       <section className="pt-32 pb-16 px-6 lg:px-12 max-w-5xl mx-auto text-center">
         <span className="text-xs uppercase tracking-[0.3em] font-medium text-[#8A928B] mb-6 block">Obstetric Care</span>
         <h1 className="font-serif text-5xl md:text-7xl font-medium text-[#1A1F1B] mb-8 leading-[1.05] tracking-tighter text-balance">
