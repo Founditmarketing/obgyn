@@ -26,6 +26,7 @@ const jsonLd = {
   description: DESCRIPTION,
   url: SITE_URL,
   image: `${SITE_URL}${DEFAULT_OG_IMAGE.url}`,
+  logo: `${SITE_URL}${DEFAULT_OG_IMAGE.url}`,
   telephone: '+13184458120',
   email: 'concierge@alexjosephmd.com',
   address: {
