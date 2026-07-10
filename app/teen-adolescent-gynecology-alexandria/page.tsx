@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Compassionate Teen & Adolescent Gynecology | Dr. Alex Joseph OBGYN',
   description: 'Judgment-free, comfortable adolescent gynecology and first-time visits.',
+  alternates: { canonical: '/teen-adolescent-gynecology-alexandria' },
 };
 
 export default function TeenGynecologyPage() {

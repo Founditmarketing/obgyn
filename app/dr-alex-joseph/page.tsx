@@ -6,6 +6,7 @@ import { ArrowRight, ShieldCheck, Award } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Meet Dr. Alex Joseph | Alexandria OBGYN',
   description: 'Learn more about Dr. Alex Joseph, specializing in minimally invasive robotics and compassionate women\'s healthcare in Central Louisiana.',
+  alternates: { canonical: '/dr-alex-joseph' },
 };
 
 export default function DrAlexJosephPage() {

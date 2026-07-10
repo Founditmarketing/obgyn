@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: { canonical: '/portal' },
 };
 
 export default function PortalLayout({ children }: { children: React.ReactNode }) {

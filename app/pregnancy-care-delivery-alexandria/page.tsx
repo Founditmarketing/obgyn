@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Complete Pregnancy Care & Delivery in Alexandria | Dr. Alex Joseph OBGYN',
   description: 'Comprehensive pregnancy care from first trimester to delivery, acting as your personal 24/7 advocate.',
+  alternates: { canonical: '/pregnancy-care-delivery-alexandria' },
 };
 
 export default function PregnancyCarePage() {

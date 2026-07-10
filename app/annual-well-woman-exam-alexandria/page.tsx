@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Annual Well-Woman Preventative Exams | Dr. Alex Joseph OBGYN',
   description: 'Comprehensive preventative care, including pelvic exams, Pap smears, and health consultations.',
+  alternates: { canonical: '/annual-well-woman-exam-alexandria' },
 };
 
 export default function WellWomanExamPage() {

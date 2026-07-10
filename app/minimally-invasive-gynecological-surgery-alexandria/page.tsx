@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Minimally Invasive & Robotic Gynecologic Surgery | Dr. Alex Joseph OBGYN',
   description: 'Advanced minimally invasive and robotic-assisted gynecologic surgeries for faster recovery.',
+  alternates: { canonical: '/minimally-invasive-gynecological-surgery-alexandria' },
 };
 
 export default function RoboticSurgeryPage() {

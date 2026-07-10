@@ -5,6 +5,7 @@ import { ArrowLeft, MapPin, Coffee, Activity, Baby, HeartHandshake } from 'lucid
 export const metadata: Metadata = {
   title: 'Local Resources & Concierge Guide | Alexandria OBGYN',
   description: 'Curated wellness, nutrition, and healthcare partners in Central Louisiana carefully selected by Dr. Alex Joseph.',
+  alternates: { canonical: '/local-resources' },
 };
 
 export default function LocalResourcesPage() {

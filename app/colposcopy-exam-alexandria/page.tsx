@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Colposcopy Exams for Abnormal Pap Smears | Dr. Alex Joseph OBGYN',
   description: 'Expert colposcopy exams and follow-ups for abnormal Pap smears in a calming environment.',
+  alternates: { canonical: '/colposcopy-exam-alexandria' },
 };
 
 export default function ColposcopyPage() {

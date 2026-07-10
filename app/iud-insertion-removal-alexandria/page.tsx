@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'IUD Insertion & Reversible Contraception | Dr. Alex Joseph OBGYN',
   description: 'Long-acting, reversible IUD contraception insertion and removal.',
+  alternates: { canonical: '/iud-insertion-removal-alexandria' },
 };
 
 export default function IudInsertionPage() {

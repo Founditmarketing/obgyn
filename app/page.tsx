@@ -10,6 +10,7 @@ import { ScrollReveal } from '@/components/visuals/ScrollReveal';
 export const metadata: Metadata = {
   title: "Dr. Alex Joseph | Alexandria, LA OBGYN & Women's Healthcare",
   description: 'Board-certified OBGYN in Alexandria, Louisiana. Dr. Alex Joseph offers compassionate, concierge-style women\'s healthcare, from annual exams to advanced robotic surgery.',
+  alternates: { canonical: '/' },
 };
 
 export default function Home() {

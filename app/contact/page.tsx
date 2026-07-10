@@ -5,6 +5,7 @@ import { ContactForm } from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Contact Us | Alexandria OBGYN',
   description: 'Get in touch with Dr. Alex Joseph for personalized women\'s healthcare in Central Louisiana.',
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'HIPAA Notice of Privacy Practices | Dr. Alex Joseph OBGYN',
   description: 'HIPAA compliance and patient privacy practices.',
+  alternates: { canonical: '/hipaa-notice' },
 };
 
 export default function HipaaNoticePage() {

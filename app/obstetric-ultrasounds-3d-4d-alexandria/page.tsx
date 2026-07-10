@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Diagnostic & 3D/4D Obstetric Ultrasounds | Dr. Alex Joseph OBGYN',
   description: 'Diagnostic and elective 3D/4D obstetric ultrasounds for prenatal care and bonding.',
+  alternates: { canonical: '/obstetric-ultrasounds-3d-4d-alexandria' },
 };
 
 export default function UltrasoundPage() {

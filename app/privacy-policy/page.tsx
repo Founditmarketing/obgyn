@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Dr. Alex Joseph OBGYN',
   description: 'Privacy Policy for Alexandria leading OBGYN digital sanctuary.',
+  alternates: { canonical: '/privacy-policy' },
 };
 
 export default function PrivacyPolicyPage() {

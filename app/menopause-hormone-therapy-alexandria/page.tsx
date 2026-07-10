@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Menopause Management & Hormone Therapy | Dr. Alex Joseph OBGYN',
   description: 'Expert guidance and hormone therapy options for managing menopause symptoms.',
+  alternates: { canonical: '/menopause-hormone-therapy-alexandria' },
 };
 
 export default function MenopauseManagementPage() {
