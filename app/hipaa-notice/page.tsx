@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'HIPAA Notice of Privacy Practices | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'HIPAA compliance and patient privacy practices.';
+const PATH = '/hipaa-notice';
 
 export const metadata: Metadata = {
-  title: 'HIPAA Notice of Privacy Practices | Dr. Alex Joseph OBGYN',
-  description: 'HIPAA compliance and patient privacy practices.',
-  alternates: { canonical: '/hipaa-notice' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function HipaaNoticePage() {

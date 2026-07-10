@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Annual Well-Woman Preventative Exams | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'Comprehensive preventative care, including pelvic exams, Pap smears, and health consultations.';
+const PATH = '/annual-well-woman-exam-alexandria';
 
 export const metadata: Metadata = {
-  title: 'Annual Well-Woman Preventative Exams | Dr. Alex Joseph OBGYN',
-  description: 'Comprehensive preventative care, including pelvic exams, Pap smears, and health consultations.',
-  alternates: { canonical: '/annual-well-woman-exam-alexandria' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function WellWomanExamPage() {

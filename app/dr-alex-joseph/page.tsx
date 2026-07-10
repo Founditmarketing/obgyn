@@ -2,11 +2,18 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ShieldCheck, Award } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Meet Dr. Alex Joseph | Alexandria OBGYN';
+const DESCRIPTION = 'Learn more about Dr. Alex Joseph, specializing in minimally invasive robotics and compassionate women\'s healthcare in Central Louisiana.';
+const PATH = '/dr-alex-joseph';
 
 export const metadata: Metadata = {
-  title: 'Meet Dr. Alex Joseph | Alexandria OBGYN',
-  description: 'Learn more about Dr. Alex Joseph, specializing in minimally invasive robotics and compassionate women\'s healthcare in Central Louisiana.',
-  alternates: { canonical: '/dr-alex-joseph' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function DrAlexJosephPage() {

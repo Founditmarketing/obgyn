@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, MapPin, Coffee, Activity, Baby, HeartHandshake } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Local Resources & Concierge Guide | Alexandria OBGYN';
+const DESCRIPTION = 'Curated wellness, nutrition, and healthcare partners in Central Louisiana carefully selected by Dr. Alex Joseph.';
+const PATH = '/local-resources';
 
 export const metadata: Metadata = {
-  title: 'Local Resources & Concierge Guide | Alexandria OBGYN',
-  description: 'Curated wellness, nutrition, and healthcare partners in Central Louisiana carefully selected by Dr. Alex Joseph.',
-  alternates: { canonical: '/local-resources' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function LocalResourcesPage() {

@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Diagnostic & 3D/4D Obstetric Ultrasounds | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'Diagnostic and elective 3D/4D obstetric ultrasounds for prenatal care and bonding.';
+const PATH = '/obstetric-ultrasounds-3d-4d-alexandria';
 
 export const metadata: Metadata = {
-  title: 'Diagnostic & 3D/4D Obstetric Ultrasounds | Dr. Alex Joseph OBGYN',
-  description: 'Diagnostic and elective 3D/4D obstetric ultrasounds for prenatal care and bonding.',
-  alternates: { canonical: '/obstetric-ultrasounds-3d-4d-alexandria' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function UltrasoundPage() {

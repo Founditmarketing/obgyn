@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Complete Pregnancy Care & Delivery in Alexandria | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'Comprehensive pregnancy care from first trimester to delivery, acting as your personal 24/7 advocate.';
+const PATH = '/pregnancy-care-delivery-alexandria';
 
 export const metadata: Metadata = {
-  title: 'Complete Pregnancy Care & Delivery in Alexandria | Dr. Alex Joseph OBGYN',
-  description: 'Comprehensive pregnancy care from first trimester to delivery, acting as your personal 24/7 advocate.',
-  alternates: { canonical: '/pregnancy-care-delivery-alexandria' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function PregnancyCarePage() {

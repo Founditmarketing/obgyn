@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Terms of Service | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'Terms of Service for Dr. Alex Joseph clinical website.';
+const PATH = '/terms-of-service';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Dr. Alex Joseph OBGYN',
-  description: 'Terms of Service for Dr. Alex Joseph clinical website.',
-  alternates: { canonical: '/terms-of-service' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function TermsOfServicePage() {

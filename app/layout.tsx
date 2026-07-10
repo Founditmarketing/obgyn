@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ChatWidget } from '@/components/chat/ChatWidget';
+import { SITE_URL, DEFAULT_OG_IMAGE } from '@/lib/seo';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -19,9 +20,24 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.alexjosephmd.com'),
+  metadataBase: new URL(SITE_URL),
   title: "Dr. Alex Joseph | Women's Healthcare",
   description: 'A digital sanctuary for women\'s healthcare in Alexandria, LA. Featuring biophilic design, hyper-personalized patient journeys, and luxury hospitality.',
+  openGraph: {
+    title: "Dr. Alex Joseph | Women's Healthcare",
+    description: 'A digital sanctuary for women\'s healthcare in Alexandria, LA. Featuring biophilic design, hyper-personalized patient journeys, and luxury hospitality.',
+    url: SITE_URL,
+    siteName: 'Dr. Alex Joseph OBGYN',
+    images: [DEFAULT_OG_IMAGE],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Dr. Alex Joseph | Women's Healthcare",
+    description: 'A digital sanctuary for women\'s healthcare in Alexandria, LA. Featuring biophilic design, hyper-personalized patient journeys, and luxury hospitality.',
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

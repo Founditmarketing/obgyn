@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Minimally Invasive & Robotic Gynecologic Surgery | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'Advanced minimally invasive and robotic-assisted gynecologic surgeries for faster recovery.';
+const PATH = '/minimally-invasive-gynecological-surgery-alexandria';
 
 export const metadata: Metadata = {
-  title: 'Minimally Invasive & Robotic Gynecologic Surgery | Dr. Alex Joseph OBGYN',
-  description: 'Advanced minimally invasive and robotic-assisted gynecologic surgeries for faster recovery.',
-  alternates: { canonical: '/minimally-invasive-gynecological-surgery-alexandria' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function RoboticSurgeryPage() {

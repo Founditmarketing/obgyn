@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Privacy Policy | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'Privacy Policy for Alexandria leading OBGYN digital sanctuary.';
+const PATH = '/privacy-policy';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Dr. Alex Joseph OBGYN',
-  description: 'Privacy Policy for Alexandria leading OBGYN digital sanctuary.',
-  alternates: { canonical: '/privacy-policy' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function PrivacyPolicyPage() {

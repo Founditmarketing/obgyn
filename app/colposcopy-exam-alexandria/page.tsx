@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'Colposcopy Exams for Abnormal Pap Smears | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'Expert colposcopy exams and follow-ups for abnormal Pap smears in a calming environment.';
+const PATH = '/colposcopy-exam-alexandria';
 
 export const metadata: Metadata = {
-  title: 'Colposcopy Exams for Abnormal Pap Smears | Dr. Alex Joseph OBGYN',
-  description: 'Expert colposcopy exams and follow-ups for abnormal Pap smears in a calming environment.',
-  alternates: { canonical: '/colposcopy-exam-alexandria' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function ColposcopyPage() {

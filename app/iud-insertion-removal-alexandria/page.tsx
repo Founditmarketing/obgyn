@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo';
+
+const TITLE = 'IUD Insertion & Reversible Contraception | Dr. Alex Joseph OBGYN';
+const DESCRIPTION = 'Long-acting, reversible IUD contraception insertion and removal.';
+const PATH = '/iud-insertion-removal-alexandria';
 
 export const metadata: Metadata = {
-  title: 'IUD Insertion & Reversible Contraception | Dr. Alex Joseph OBGYN',
-  description: 'Long-acting, reversible IUD contraception insertion and removal.',
-  alternates: { canonical: '/iud-insertion-removal-alexandria' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: PATH, images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default function IudInsertionPage() {
